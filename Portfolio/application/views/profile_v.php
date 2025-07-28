@@ -110,7 +110,7 @@
                                                 <hr>
                                                 <ul class="list-styled" style="color: #6c757d;">
                                                     <li>Email: marvinbatitay7@gmail.com</li>
-                                                    <li>GitHub: github.com/mvntsh - <a href="Home">
+                                                    <li>GitHub: github.com/mvntsh - <a href="Create">
                                                         <button class="btn btn-success btn-sm" style="border-radius: 0px;">Portfolio</button></a>
                                                     </li>
                                                 </ul>
