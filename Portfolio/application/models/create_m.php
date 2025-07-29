@@ -1,11 +1,27 @@
 <?php
-    class Create extends CI_Model{
-        function __construct() {
+    class create_m extends CI_Model{
+        function __construct(){
             $this->load->database();
         }
 
-        function saveFile_m(){
-           
+        function requestExists_m($request_id){
+            $query = $this->db->query("SELECT * FROM `tblrequest` WHERE request_id='$request_id'")->result_array();
+
+            if(count($query) > 0){
+                return true; // Request ID exists
+            } else {
+                return false; // Request ID does not exist
+            }
+        }
+
+        function saveFile_m($values){
+            $this->db->insert("tblrequest",$values);
+
+            if($this->db->affected_rows() > 0){
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 ?>
