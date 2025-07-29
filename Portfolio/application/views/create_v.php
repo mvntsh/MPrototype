@@ -1,9 +1,9 @@
 <div class="row" style="margin-top: 2em; margin-bottom: 3em;">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-        <div class="card" style="border-radius: 0px; background-color: #D4D7D9;">
+        <div class="card" style="border-radius: 0px; background-color: #81ad74; zoom: 80%; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;" id="cardCreate">
             <div class="card-body">
-                <h1 class="text-center"><?php echo $title; ?></h1>
+                <h1 class="text-center" style="letter-spacing: 2px; text-transform: uppercase; font-weight: bolder;"><?php echo $title; ?></h1>
                 <div style="margin-top: 3em;">
                     <form id="frmInputs">
                         <div class="form-floating mb-3">
@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-md-8"></div>
                         <div class="col-md-4 d-grid">
-                            <button class="btn btn-primary" id="btnSave">Send request.</button>
+                            <button class="btn btn-primary btn-lg" style="box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;" id="btnSave">Send request.</button>
                         </div>
                     </div>
                 </div>
@@ -50,6 +50,47 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
+        $('#inputnmRequestid').keypress(function(e){    
+    
+            var charCode = (e.which) ? e.which : event.keyCode    
+            if (String.fromCharCode(charCode).match(/[^0-9]/g))
+            return false;                        
+
+        });
+
+        $('#inputnmAmount').keypress(function(e){    
+    
+            var charCode = (e.which) ? e.which : event.keyCode    
+            if (String.fromCharCode(charCode).match(/[^0-9,.]/g))
+            return false;                        
+
+        });
+
+        $('#inputnmAmount').keyup(function(event) {
+
+            $(this).val(function(index, value) {
+                value = value.replace(/,/g,'');
+                return numberWithCommas(value);
+            });
+        });
+
+        function numberWithCommas(x){
+            var parts = x.toString().split(".");
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return parts.join(".");
+        }
+
+        $('#inputnmAmount').keypress(function(event) {
+            if(event.which == 46
+            && $(this).val().indexOf('.') != -1) {
+                event.preventDefault();
+            } // prevent if already decimal point
+            
+            if(event.which != 46 && (event.which < 48 || event.which > 57)) {
+                event.preventDefault();
+            } // prevent if not number/dot
+        });
+
         $("#btnSave").click(function(){
             requestExists_v();
         });

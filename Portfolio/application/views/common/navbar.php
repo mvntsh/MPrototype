@@ -52,10 +52,10 @@
             }
         }
     </style>
-    <div class="container" style="width: 100%;">
+    <div class="container" style="width: 100%; zoom: 80%;">
         <section class="color-3">
             <nav class="cl-effect-15">
-                <a href="#" data-hover="Create">Create</a>
+                <a href="Create" data-hover="Create">Create</a>
                 <a href="#" data-hover="Read">Read</a>
                 <a href="#" data-hover="Update">Update</a>
                 <a href="#" data-hover="Delete">Delete</a>
