@@ -5,16 +5,13 @@
                     <h1 style="letter-spacing: 2px; font-size: 35pt; font-weight: bolder;"><?php echo $title; ?></h1>
                 </div>
                 <div class="col-md-3">
-                    <select name="" class="form-control" id="" style="height: 2.5em; font-size: 18pt;">
-                        <option value="Request">Request</option>
-                        <option value="Receive">Receive</option>
-                    </select>
+                    <select name="txtnmRequeststatus" class="form-control text-center" id="inputnmRequeststatus" style="height: 2.5em; font-size: 18pt; background-color: #dbf5d5;"></select>
                 </div>
                 <div class="col-md-3">
-                    <input type="text" class="form-control" placeholder="Search..." style="height: 2.5em; font-size: 18pt;">
+                    <input type="text" name="txtnmSearch" class="form-control" placeholder="Search..." style="height: 2.5em; font-size: 18pt; background-color: #dbf5d5;" id="inputnmSearch" autocomplete="off">
                 </div>
             </div>
-            <div class="card">
+            <div class="card" style="overflow-y: scroll; height: 710px; scrollbar-width: thin; scrollbar-color: #27990b #b8d9b0; background-color: #e0fcd9;">
                 <div class="card-body">
                     <table id="tblRequest" class="table table-striped table-success" style="width:100%;">
                         <thead>
@@ -36,6 +33,7 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
+            viewRequeststatus_v();
             viewData_v();
             function viewData_v(){
                 $.ajax({
@@ -49,13 +47,13 @@
                             response.data.forEach(function(x){
                                 tbody += `
                                     <tr style="height: 2.5em; vertical-align: middle; font-size: 16px;">
-                                        <td style="text-align: center;">123456</td>
-                                        <td style="font-weight: bolder;">Marvin B. Batitay</td>
-                                        <td style="text-align: center;">2025-07-30</td>
-                                        <td>Funding</td>
-                                        <td style="text-align: center;">Request</td>
-                                        <td>Funding for July 30, 2025.</td>
-                                        <td style="text-align: right;">100.00</td>
+                                        <td style="text-align: center;">${x['request_id']}</td>
+                                        <td style="font-weight: bolder;">${x['accountname']}</td>
+                                        <td style="text-align: center;">${x['requestdate']}</td>
+                                        <td>${x['transactiontype']}</td>
+                                        <td style="text-align: center;">${x['requeststatus']}</td>
+                                        <td>${x['description']}</td>
+                                        <td style="text-align: right;">${x['amount']}</td>
                                 `;
                             })
                             $('#tblRequest tbody').html(tbody);
@@ -67,6 +65,94 @@
                         console.error("Error fetching data: " + error);
                     }
                 });
+            }
+
+            $("#inputnmRequeststatus").change(function(){
+                viewperStatus_v();
+            });
+
+            function viewperStatus_v(){
+                $.ajax({
+                    url:"Read/viewperStatus_c",
+                    type: "POST",
+                    data:$("#inputnmRequeststatus").serialize(),
+                    dataType:"json",
+                    success:function(response){
+                        if(response.success){
+                            tbody = '';
+
+                            response.data.forEach(function(x){
+                                tbody += `
+                                    <tr style="height: 2.5em; vertical-align: middle; font-size: 16px;">
+                                        <td style="text-align: center;">${x['request_id']}</td>
+                                        <td style="font-weight: bolder;">${x['accountname']}</td>
+                                        <td style="text-align: center;">${x['requestdate']}</td>
+                                        <td>${x['transactiontype']}</td>
+                                        <td style="text-align: center;">${x['requeststatus']}</td>
+                                        <td>${x['description']}</td>
+                                        <td style="text-align: right;">${x['amount']}</td>
+                                    </tr>
+                                `;
+                            })
+                            $("#tblRequest tbody").html(tbody);
+                        }
+                    }
+                })
+            }
+
+            $("#inputnmSearch").keyup(function(){
+                searchSomething_v();
+            });
+
+            function searchSomething_v(){
+                $.ajax({
+                    url:"Read/searchSomething_c",
+                    type:"POST",
+                    data:$("#inputnmSearch").serialize(),
+                    dataType:"json",
+                    success:function(response){
+                        if(response.success){
+                            tbody = '';
+
+                            response.data.forEach(function(x){
+                                tbody += `
+                                    <tr style="height: 2.5em; vertical-align: middle; font-size: 16px;">
+                                        <td style="text-align: center;">${x['request_id']}</td>
+                                        <td style="font-weight: bolder;">${x['accountname']}</td>
+                                        <td style="text-align: center;">${x['requestdate']}</td>
+                                        <td>${x['transactiontype']}</td>
+                                        <td style="text-align: center;">${x['requeststatus']}</td>
+                                        <td>${x['description']}</td>
+                                        <td style="text-align: right;">${x['amount']}</td>
+                                    </tr>
+                                `;
+                            })
+                            $("#tblRequest tbody").html(tbody);
+                        } else {
+                            viewData_v();
+                            alert(response.error);
+                        }
+                    }
+                })
+            }
+
+            function viewRequeststatus_v(){
+                $.ajax({
+                    url:"Read/viewRequeststatus_c",
+                    type:"POST",
+                    dataType:"json",
+                    success:function(response){
+                        if(response.success){
+                            var options = '<option value="">Select Request Status</option>';
+                            response.data.forEach(function(x){
+                                options += `<option value="${x['requeststatus']}">${x['requeststatus']}</option>`;
+                            });
+                            $("#inputnmRequeststatus").html(options);
+                        } else {
+                            alert("No request status found.");
+                        }
+                    }
+                })
             }
         })
     </script>

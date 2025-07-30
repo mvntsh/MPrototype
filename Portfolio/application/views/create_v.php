@@ -37,7 +37,7 @@
                             <div class="form-floating mb-3">
                                 <select class="form-control" name="txtnmTransactiontype" id="inputnmTransactiontype" autocomplete="off">
                                     <option value="Funding">Funding</option>
-                                    <option value="CA">Cash Advance</option>
+                                    <option value="Cash Advance">Cash Advance</option>
                                 </select>
                                 <label for="inputnmTransactiontype">Transaction type</label>
                             </div>
