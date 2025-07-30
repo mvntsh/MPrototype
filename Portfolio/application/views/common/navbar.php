@@ -56,11 +56,10 @@
         <section class="color-3">
             <nav class="cl-effect-15">
                 <a href="Create" data-hover="Create">Create</a>
-                <a href="#" data-hover="Read">Read</a>
+                <a href="Read" data-hover="Read">Read</a>
                 <a href="#" data-hover="Update">Update</a>
                 <a href="#" data-hover="Delete">Delete</a>
                 <a href="#" data-hover="Chart">Chart</a>
             </nav>
         </section>
     </div>
-    
