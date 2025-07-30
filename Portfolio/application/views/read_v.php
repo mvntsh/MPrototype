@@ -2,7 +2,7 @@
         <div class="card-body">
             <div class="row" style="margin-bottom: 2em;">
                 <div class="col-md-6">
-                    <h1 style="letter-spacing: 2px; font-size: 35pt; font-weight: bolder;"><?php echo $title; ?></h1>
+                    <h1 style="letter-spacing: 2px; font-size: 35pt; font-weight: bolder; color: #e7ebe6; text-transform: uppercase;"><?php echo $title; ?></h1>
                 </div>
                 <div class="col-md-3">
                     <select name="txtnmRequeststatus" class="form-control text-center" id="inputnmRequeststatus" style="height: 2.5em; font-size: 18pt; background-color: #dbf5d5;"></select>
@@ -51,7 +51,7 @@
                                         <td style="font-weight: bolder;">${x['accountname']}</td>
                                         <td style="text-align: center;">${x['requestdate']}</td>
                                         <td>${x['transactiontype']}</td>
-                                        <td style="text-align: center;">${x['requeststatus']}</td>
+                                        <td style="text-align: center;"><span class="badge" style="background-color: ${x['requestStatuscolor']};">${x['requeststatus']}</span></td>
                                         <td>${x['description']}</td>
                                         <td style="text-align: right;">${x['amount']}</td>
                                 `;
@@ -88,7 +88,7 @@
                                         <td style="font-weight: bolder;">${x['accountname']}</td>
                                         <td style="text-align: center;">${x['requestdate']}</td>
                                         <td>${x['transactiontype']}</td>
-                                        <td style="text-align: center;">${x['requeststatus']}</td>
+                                        <td style="text-align: center;"><span class="badge" style="background-color: ${x['requestStatuscolor']};">${x['requeststatus']}</span></td>
                                         <td>${x['description']}</td>
                                         <td style="text-align: right;">${x['amount']}</td>
                                     </tr>
@@ -121,7 +121,7 @@
                                         <td style="font-weight: bolder;">${x['accountname']}</td>
                                         <td style="text-align: center;">${x['requestdate']}</td>
                                         <td>${x['transactiontype']}</td>
-                                        <td style="text-align: center;">${x['requeststatus']}</td>
+                                        <td style="text-align: center;"><span class="badge" style="background-color: ${x['requestStatuscolor']};">${x['requeststatus']}</span></td>
                                         <td>${x['description']}</td>
                                         <td style="text-align: right;">${x['amount']}</td>
                                     </tr>
@@ -129,8 +129,8 @@
                             })
                             $("#tblRequest tbody").html(tbody);
                         } else {
-                            viewData_v();
                             alert(response.error);
+                            viewData_v();
                         }
                     }
                 })

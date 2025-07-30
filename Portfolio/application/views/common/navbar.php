@@ -57,9 +57,29 @@
             <nav class="cl-effect-15">
                 <a href="Create" data-hover="Create">Create</a>
                 <a href="Read" data-hover="Read">Read</a>
-                <a href="#" data-hover="Update">Update</a>
+                <a href="Update" data-hover="Update" class="position-relative">Update <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="requestBadge"><span class="visually-hidden">unread messages</span></span></a>
                 <a href="#" data-hover="Delete">Delete</a>
                 <a href="#" data-hover="Chart">Chart</a>
             </nav>
         </section>
     </div>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            countRequest_v();
+            function countRequest_v(){
+                $.ajax({
+                    url:"Update/countRequest_c",
+                    type:"POST",
+                    dataType:"json",
+                    success:function(response){
+                        if(response.success){
+                            var count = response.data[0].countRequest;
+                            $("#requestBadge").text(count > 99 ? "99+" : count); // Display 99+ if count exceeds 99
+                        } else {
+                            $("#requestBadge").text("0"); // Default to 0 if no data found
+                        }
+                    }
+                })
+            }
+        });
+    </script>

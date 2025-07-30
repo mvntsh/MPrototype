@@ -7,7 +7,7 @@
 
         // Function to get data from the database
         function viewData_m(){
-            $query = $this->db->query("SELECT * FROM `tblrequest` ORDER BY request_id ASC;")->result_array(); // Replace 'your_table_name' with your actual table name
+            $query = $this->db->query("SELECT *,CASE WHEN `requeststatus`='Request' THEN '#026675' WHEN `requeststatus`='Received' THEN '#027504' ELSE 'red' END AS requestStatuscolor FROM `tblrequest` ORDER BY request_id ASC;")->result_array(); // Replace 'your_table_name' with your actual table name
             
             if(count($query) > 0){
                 return $query; // Return the result set if there are records
@@ -17,7 +17,7 @@
         }
 
         function viewperStatus_m($requeststatus){
-            $query = $this->db->query("SELECT * FROM `tblrequest` WHERE requeststatus = '$requeststatus' ORDER BY request_id ASC;")->result_array(); // Replace 'your_table_name' with your actual table name
+            $query = $this->db->query("SELECT *,CASE WHEN `requeststatus`='Request' THEN '#026675' WHEN `requeststatus`='Received' THEN '#027504' ELSE 'red' END AS requestStatuscolor FROM `tblrequest` WHERE requeststatus = '$requeststatus' ORDER BY request_id ASC;")->result_array(); // Replace 'your_table_name' with your actual table name
             
             if(count($query) > 0){
                 return $query; // Return the result set if there are records
@@ -27,7 +27,7 @@
         }
 
         function searchSomething_m($search){
-            $query = $this->db->query("SELECT * FROM `tblrequest` WHERE request_id LIKE '%$search%' OR accountname LIKE '%$search%' ORDER BY request_id ASC;")->result_array();
+            $query = $this->db->query("SELECT *,CASE WHEN `requeststatus`='Request' THEN '#026675' WHEN `requeststatus`='Received' THEN '#027504' ELSE 'red' END AS requestStatuscolor FROM `tblrequest` WHERE request_id LIKE '%$search%' OR accountname LIKE '%$search%' ORDER BY request_id ASC;")->result_array();
 
             if(count($query) > 0){
                 return $query; // Return the result set if there are records
