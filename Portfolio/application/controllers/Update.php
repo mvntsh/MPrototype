@@ -34,5 +34,18 @@
             }
             echo json_encode($data);
         }
+
+        function searchRequest_c(){
+            $data["success"] = false;
+
+            $searchTerm = $this->input->post("txtnmSearchTerm");
+
+            $data["data"] = $this->update_m->searchRequest_m($searchTerm);
+
+            if(count($data["data"]) > 0){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
     }
 ?>

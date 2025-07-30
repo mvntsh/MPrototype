@@ -24,6 +24,16 @@
                 return false; // Return false if no records found
             }
         }
+
+        function searchRequest_m($searchTerm){
+            $query = $this->db->query("SELECT * FROM `tblrequest` WHERE request_id LIKE '%$searchTerm%' OR accountname LIKE '%$searchTerm%' ORDER BY request_id DESC;")->result_array();
+
+            if(count($query) > 0){
+                return $query; // Return the result set if there are records
+            } else {
+                return array(); // Return false if no records found
+            }
+        }
     }
     
 ?>
