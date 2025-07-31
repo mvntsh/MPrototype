@@ -47,5 +47,38 @@
             }
             echo json_encode($data);
         }
+
+        function requestStatus_c(){
+            $data["success"] = false;
+
+            $data["data"] = $this->update_m->requestStatus_m();
+
+            if(count($data["data"]) > 0){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
+
+        function viewRequest_c(){
+            $data["success"] = false;
+
+            $data["data"] = $this->update_m->viewRequest_m();
+
+            if(count($data["data"]) > 0){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
+
+        function viewReceived_c(){
+            $data["success"] = false;
+
+            $data["data"] = $this->update_m->viewReceived_m();
+
+            if(count($data["data"]) > 0){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
     }
 ?>
