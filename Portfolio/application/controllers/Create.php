@@ -15,11 +15,13 @@
         }
 
         function requestExists_c(){
-            $exists = $this->create_m->requestExists_m($request_id = $this->input->post('txtnmRequestid'));
-            if($exists){
-                $data["success"] = false;
-                $data["error"] = "Request ID already exists.";
-            } else {
+            $data["success"] = false;
+
+            $request_id = $this->input->post("txtnmRequestid");
+
+            $response = $this->create_m->requestExists_m($request_id);
+
+            if($response){
                 $data["success"] = true;
             }
             echo json_encode($data);

@@ -7,7 +7,7 @@
         function requestExists_m($request_id){
             $query = $this->db->query("SELECT * FROM `tblrequest` WHERE request_id='$request_id'")->result_array();
 
-            if(count($query) > 0){
+            if($query){
                 return true; // Request ID exists
             } else {
                 return false; // Request ID does not exist

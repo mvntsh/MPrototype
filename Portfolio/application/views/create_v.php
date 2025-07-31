@@ -111,14 +111,15 @@
                 $.ajax({
                     url: "Create/requestExists_c",
                     type: "POST",
-                    data: {request_id: $("#inputnmRequestid").val()},
+                    data: $("#inputnmRequestid").serialize(),
                     dataType: 'json',
                     success: function(response){
                         if(response.success){
-                            saveFile_v();
-                        } else {
-                            alert(response.error);
+                            alert("Request ID already exists. Please input a different Request ID.");
                             $("#inputnmRequestid").val("").focus();
+                        } else {
+                            
+                            saveFile_v();
                         }
                     },
                     error: function(){

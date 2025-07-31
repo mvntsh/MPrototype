@@ -64,6 +64,28 @@
                 return array(); // Return false if no records found
             }
         }
+
+        function updateRequestdata_m($requestno,$values){
+            $this->db->where("request_no",$requestno);
+            $this->db->update("tblrequest",$values);
+
+            if($this->db->affected_rows() > 0){
+                return true; // Return true if the update was successful
+            } else {
+                return false; // Return false if no rows were affected
+            }
+        }
+
+        function requestProcess_m($requestno,$values){
+            $this->db->where("request_no",$requestno);
+            $this->db->update("tblrequest",$values);
+            
+            if($this->db->affected_rows() > 0){
+                return true; // Return true if the process was successful
+            } else {
+                return false; // Return false if no rows were affected
+            }
+        }
     }
     
 ?>

@@ -80,5 +80,40 @@
             }
             echo json_encode($data);
         }
+
+        function updateRequestdata_c(){
+            $data["success"] = false;
+
+            $requestno = $this->input->post("txtnmRequestno");
+            $values = array(
+                "accountname" => $this->input->post("txtnmAccountname"),
+                "amount" => $this->input->post("txtnmAmount"),
+                "description" => $this->input->post("txtnmDescription")
+            );
+
+            $response = $this->update_m->updateRequestdata_m($requestno, $values);
+
+            if($response){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
+
+        function requestProcess_c(){
+            $data["success"] = false;
+
+            $requestno = $this->input->post("txtnmRequestno");
+
+            $values = array(
+                "requeststatus" => "Received"
+            );
+
+            $response = $this->update_m->requestProcess_m($requestno,$values);
+
+            if($response){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
     }
 ?>
