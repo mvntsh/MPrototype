@@ -51,6 +51,40 @@
         $(document).ready(function(){
             viewData_v();
             requestStatus_v();
+
+            $('#inputnmAmount').keypress(function(e){    
+        
+                var charCode = (e.which) ? e.which : event.keyCode    
+                if (String.fromCharCode(charCode).match(/[^0-9,.]/g))
+                return false;                        
+
+            });
+
+            $('#inputnmAmount').keyup(function(event) {
+
+                $(this).val(function(index, value) {
+                    value = value.replace(/,/g,'');
+                    return numberWithCommas(value);
+                });
+            });
+
+            function numberWithCommas(x){
+                var parts = x.toString().split(".");
+                parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                return parts.join(".");
+            }
+
+            $('#inputnmAmount').keypress(function(event) {
+                if(event.which == 46
+                && $(this).val().indexOf('.') != -1) {
+                    event.preventDefault();
+                } // prevent if already decimal point
+                
+                if(event.which != 46 && (event.which < 48 || event.which > 57)) {
+                    event.preventDefault();
+                } // prevent if not number/dot
+            });
+
             function viewData_v(){
                 $.ajax({
                     url:"Update/viewData_c",
