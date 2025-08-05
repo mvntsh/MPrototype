@@ -1,7 +1,7 @@
 <?php
     class delete_m extends CI_Model{
         function __construct(){
-            $this->db->database();
+            $this->load->database();
         }
 
         function viewRequest_m(){
@@ -11,6 +11,17 @@
                 return $query;
             }else{
                 return array();
+            }
+        }
+
+        function removeData_m($request_no){
+            $this->db->where("request_no",$request_no);
+            $this->db->delete("tblrequest");
+
+            if($this->db->affected_rows()>0){
+                return true;
+            }else{
+                return false;
             }
         }
     }

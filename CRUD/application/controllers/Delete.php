@@ -23,6 +23,19 @@
             }
             echo json_encode($data);
         }
+
+        function removeData_c(){
+            $data["success"] = false;
+
+            $request_no = $this->input->post("txtnmRequestno");
+
+            $response = $this->delete_m->removeData_m($request_no);
+
+            if($response){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
     }
     
 ?>
