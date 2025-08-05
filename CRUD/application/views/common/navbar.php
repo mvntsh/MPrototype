@@ -59,7 +59,7 @@
                 <a href="Read" data-hover="Read">Read</a>
                 <a href="Update" data-hover="Update" class="position-relative">Update <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="requestBadge"><span class="visually-hidden">unread messages</span></span></a>
                 <a href="Delete" data-hover="Delete">Delete</a>
-                <a href="#" data-hover="Chart">Chart</a>
+                <a href="Chart" data-hover="Chart">Chart</a>
             </nav>
         </section>
     </div>

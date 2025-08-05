@@ -1,3 +1,4 @@
+    
     <div class="row" style="margin-top: 1em;">
         <div class="col-md-1"></div>
         <div class="col-md-10">
@@ -13,13 +14,14 @@
                         </div>
                     </div>
                     <div class="card" style="overflow-y: scroll; height: 500px; scrollbar-width: thin; scrollbar-color: #27990b #b8d9b0; border-radius:0px;">
-                        <table class="table table-hover table-warning" id="tblRequest">
+                        <table class="table table-hover table-warning table-striped" id="tblRequest" style="zoom: 80%;">
                             <thead>
                                 <tr style="text-align: center; vertical-align: middle;">
-                                    <th style="background-color: #046b12; color: #e0fcd9;">Request ID</th>
-                                    <th style="background-color: #046b12; color: #e0fcd9;">Account Name</th>
-                                    <th style="background-color: #046b12; color: #e0fcd9;">Amount</th>
-                                    <th style="background-color: #046b12; color: #e0fcd9;">Action</th>
+                                    <th style="background-color: #046b12; color: #e0fcd9; width: 10%;">Request ID</th>
+                                    <th style="background-color: #046b12; color: #e0fcd9; width: 20%;">Account Name</th>
+                                    <th style="background-color: #046b12; color: #e0fcd9; width: 15%;">Amount</th>
+                                    <th style="background-color: #046b12; color: #e0fcd9;">Description</th>
+                                    <th style="background-color: #046b12; color: #e0fcd9; width: 10%;">Action</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -48,8 +50,9 @@
                                         <td style="text-align: center;">${x.request_id}</td>
                                         <td>${x.accountname}</td>
                                         <td style="text-align: right;">${x.amount}</td>
+                                        <td>${x.description}</td>
                                         <td style="text-align: center;">
-                                            <button data-requestno="${x.request_no}" class="btn btn-danger" id="btnRemove">Remove</button>
+                                            <button data-requestno="${x.request_no}" class="btn btn-danger" id="btnRemove" style="border-radius: 0px;">Remove</button>
                                         </td>
                                     </tr>
                                 `;
