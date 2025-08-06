@@ -25,6 +25,20 @@
             }
             echo json_encode($data);
         }
+
+        function generateChart_c(){
+            $data["success"] = false;
+
+            $from = $this->input->post("txtnmFrom");
+            $to = $this->input->post("txtnmTo");
+
+            $data["data"] = $this->chart_m->generateChart_m($from,$to);
+
+            if(count($data["data"])>0){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
     }
     
 ?>
