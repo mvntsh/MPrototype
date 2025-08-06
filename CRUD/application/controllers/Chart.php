@@ -7,7 +7,7 @@
 
 
         function index(){
-            $data["title"] = "Chart";
+            $data["title"] = "Request Counter";
 
             $this->load->view("common/header",$data);
             $this->load->view("common/navbar");

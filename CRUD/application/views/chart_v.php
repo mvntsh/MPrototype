@@ -37,8 +37,9 @@
             }
         })
     </script>
-    <div class="card" style="margin-top: 2em;">
+    <div class="card" style="margin-top: 2em; border-radius: 0px;">
         <div class="card-body">
+            <h1 class="text-center"><?php echo $title; ?></h1>
             <div class="row">
                 <div class="col-md-4">
                     <div class="card" style="margin-top: 7em; border-color: transparent; zoom: 80%;">

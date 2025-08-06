@@ -140,6 +140,7 @@
                             alert("Request sent successfully!");
                             $("#frmInputs")[0].reset();
                             $("#inputnmRequestid").focus();
+                            countRequest_v();
                         } else {
                             alert("Failed to send request. Please input empty fields.");
                         }
@@ -148,6 +149,22 @@
                         alert("An error occurred while processing your request.");
                     }
                 });
+            }
+
+            function countRequest_v(){
+                $.ajax({
+                    url:"Update/countRequest_c",
+                    type:"POST",
+                    dataType:"json",
+                    success:function(response){
+                        if(response.success){
+                            var count = response.data[0].countRequest;
+                            $("#requestBadge").text(count > 99 ? "99+" : count); // Display 99+ if count exceeds 99
+                        } else {
+                            $("#requestBadge").text("0"); // Default to 0 if no data found
+                        }
+                    }
+                })
             }
         })
     </script>
