@@ -13,7 +13,7 @@
                                 var chart = new CanvasJS.Chart("chartContainer", {
                                     theme: "light1",
                                     animationEnabled: true,
-                                    // exportEnabled: true,
+                                    exportEnabled: true,
                                     title:{
                                         text: ""
                                     },
@@ -82,7 +82,7 @@
                                 var chart = new CanvasJS.Chart("chartContainer", {
                                     theme: "light1",
                                     animationEnabled: true,
-                                    // exportEnabled: true,
+                                    exportEnabled: true,
                                     title:{
                                         text: ""
                                     },
