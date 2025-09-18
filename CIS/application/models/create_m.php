@@ -7,12 +7,15 @@
 
         function saveTable_m(){
             $data = array(
-                'request_id' => $this->input->post('request_id'),
-                'business_name' => $this->input->post('business_name'),
-                'request_date' => $this->input->post('request_date'),
-                'transaction_type' => $this->input->post('transaction_type'),
-                'amount' => $this->input->post('amount'),
-                'description' => $this->input->post('description')
+                'request_no' => $this->input->post('txtnmRequest_no'),
+                'partner' => $this->input->post('txtnmPartner'),
+                'request_date' => $this->input->post('txtnmRequest_date'),
+                'transaction_type' => $this->input->post('txtnmTransactiontype'),
+                'amount' => $this->input->post('txtnmAmount'),
+                'rem_amount' => $this->input->post('txtnmAmount'),
+                'request_description' => $this->input->post('txtnmDescription'),
+                'request_status' => $this->input->post('txtnmStatus'),
+                'request_remark' => $this->input->post('txtnmRemarks')
             );
 
             return $this->db->insert('tblpayablerequest', $data);
