@@ -1,4 +1,4 @@
-To set up the examination application, the user needs to install the XAMPP v8.0 and click start button beside the apache and mysql and go to the browser and paste this link to the browser tab ìlocalhost/phpmyadminî and import the database named ìcruddbî after the database is set, lets to go the project, first, copy the project and paste to the ìxampp/htdocsî folder after the folder/project is set, to browse the project copy this link ìlocalhost/MPrototype/CRUD/index.php/Createî and paste to the browser tab.
+To set up the application, the user needs to install the XAMPP v8.0 and click start button beside the apache and mysql and go to the browser and paste this link to the browser tab ‚Äúlocalhost/phpmyadmin‚Äù and import the database named ‚Äúcruddb‚Äù after the database is set, lets to go the project, first, copy the project and paste to the ‚Äúxampp/htdocs‚Äù folder after the folder/project is set, to browse the project copy this link ‚Äúlocalhost/MPrototype/CRUD/index.php/Create‚Äù and paste to the browser tab.
 
 
 
