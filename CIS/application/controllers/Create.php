@@ -6,6 +6,21 @@
             $this->load->library('form_validation');
         }
 
+        function requestExist_c(){
+            $data["success"] = false;
+
+            $request_no = $this->input->post('txtnmRequest_no');
+
+            $response = $this->create_m->requestExist_m($request_no);
+
+            if($response){
+                $data["success"] = true; 
+                echo json_encode($data);
+            } else {
+                echo "Request No. does not exist";
+            }
+        }
+
         function saveTable_c(){
             $data["success"] = false; 
 

@@ -5,6 +5,16 @@
             $this->load->database();
         }
 
+        function requestExist_m($request_no){
+            $query = $this->db->query("SELECT * FROM `tblpayablerequest` WHERE request_no='$request_no'")->result_array();
+            
+            if($query){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         function saveTable_m(){
             $data = array(
                 'request_no' => $this->input->post('txtnmRequest_no'),
