@@ -41,10 +41,11 @@
                             <div class="row">
                                 <div class="col-md-1"></div>
                                 <div class="col-md-10">
-                                    <div hidden>
+                                    <div>
                                         <input type="text" name="txtnmAccountid" id="inputnmAccountid">
                                         <input type="text" name="txtnmOnlineviewing" value="No" id="inputnmOnlineviewing">
                                         <input type="text" name="txtnmSignatory" value="Ronniel Bacus" id="inputnmSignatory">
+                                        <input type="text" name="txtnmAccountstatus" value="Active" id="inputnmAccountstatus">
                                     </div>
                                     <input type="text" name="txtnmAccountno" class="form-control form-control-sm text-center" id="inputnmAccountno" placeholder="Account No." style="background-color: #7a7a7a; border-color: #7a7a7a; border-radius: 0px; color: white;">
                                     <input type="text" name="txtnmAccountname" class="form-control form-control-sm text-center" id="inputnmAccountname" placeholder="Account Name" style="background-color: #7a7a7a; border-color: #7a7a7a; border-radius: 0px; color: white; margin-top: .5em;">
@@ -63,7 +64,6 @@
                                         <option value="Dollar">Dollar</option>
                                         <option value="Peso">Peso</option>
                                     </select>
-                                    <input type="text" name="txtnmAccountstatus" value="Active" id="inputnmAccountstatus" hidden>
                                 </div>
                                 <div class="col-md-1"></div>
                             </div>
@@ -114,6 +114,33 @@
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Signatory</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="frmSignatory">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="inputnmSignatoryusername" placeholder="Signatory Name" aria-label="Signatory Name" aria-describedby="basic-addon1" style="border-radius: 0px;">
+                    <button class="btn btn-success" id="btnAddsignatory" type="button" style="border-radius: 0px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-circle-dotted" viewBox="0 0 16 16">
+                            <path d="M8 0q-.264 0-.523.017l.064.998a7 7 0 0 1 .918 0l.064-.998A8 8 0 0 0 8 0M6.44.152q-.52.104-1.012.27l.321.948q.43-.147.884-.237L6.44.153zm4.132.271a8 8 0 0 0-1.011-.27l-.194.98q.453.09.884.237zm1.873.925a8 8 0 0 0-.906-.524l-.443.896q.413.205.793.459zM4.46.824q-.471.233-.905.524l.556.83a7 7 0 0 1 .793-.458zM2.725 1.985q-.394.346-.74.74l.752.66q.303-.345.648-.648zm11.29.74a8 8 0 0 0-.74-.74l-.66.752q.346.303.648.648zm1.161 1.735a8 8 0 0 0-.524-.905l-.83.556q.254.38.458.793l.896-.443zM1.348 3.555q-.292.433-.524.906l.896.443q.205-.413.459-.793zM.423 5.428a8 8 0 0 0-.27 1.011l.98.194q.09-.453.237-.884zM15.848 6.44a8 8 0 0 0-.27-1.012l-.948.321q.147.43.237.884zM.017 7.477a8 8 0 0 0 0 1.046l.998-.064a7 7 0 0 1 0-.918zM16 8a8 8 0 0 0-.017-.523l-.998.064a7 7 0 0 1 0 .918l.998.064A8 8 0 0 0 16 8M.152 9.56q.104.52.27 1.012l.948-.321a7 7 0 0 1-.237-.884l-.98.194zm15.425 1.012q.168-.493.27-1.011l-.98-.194q-.09.453-.237.884zM.824 11.54a8 8 0 0 0 .524.905l.83-.556a7 7 0 0 1-.458-.793zm13.828.905q.292-.434.524-.906l-.896-.443q-.205.413-.459.793zm-12.667.83q.346.394.74.74l.66-.752a7 7 0 0 1-.648-.648zm11.29.74q.394-.346.74-.74l-.752-.66q-.302.346-.648.648zm-1.735 1.161q.471-.233.905-.524l-.556-.83a7 7 0 0 1-.793.458zm-7.985-.524q.434.292.906.524l.443-.896a7 7 0 0 1-.793-.459zm1.873.925q.493.168 1.011.27l.194-.98a7 7 0 0 1-.884-.237zm4.132.271a8 8 0 0 0 1.012-.27l-.321-.948a7 7 0 0 1-.884.237l.194.98zm-2.083.135a8 8 0 0 0 1.046 0l-.064-.998a7 7 0 0 1-.918 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer" hidden>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+        </div>
+    </div>
+    </div>
     <script type="text/javascript">
         $(document).ready(function(){
             viewAccount_v();
@@ -137,13 +164,17 @@
                                             </svg>
                                         ${sqldata.branch_name}</td>
                                         <td>${sqldata.branch_address}</td>
-                                        <td>Ronniel Bacus</td>
+                                        <td data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-accountid="${sqldata.account_id}" id="btnSignatory">Ronniel Bacus</td>
                                         <td>${sqldata.bank_name} & ${sqldata.account_no}</td>
                                         <td>${sqldata.currency}</td>
-                                        <td><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-  <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-  <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-</svg> ${sqldata.account_status}</td>
+                                        <td>
+                                            <select class="form-select form-select-sm" style="font-weight: bolder;" id="inputnmSelectStatus" data-accountid="${sqldata.account_id}">
+                                                <option value="${sqldata.account_status}" selected disabled>${sqldata.account_status}</option>
+                                                <option value="Active">Active</option>
+                                                <option value="In-active">In-active</option>
+                                                <option value="Closed">Closed</option>                                            
+                                            </select>
+                                        </td>
                                     </tr>
                                 `;
                             })
@@ -209,10 +240,17 @@
                                             </svg>
                                         ${sqldata.branch_name}</td>
                                         <td>${sqldata.branch_address}</td>
-                                        <td>Ronniel Bacus</td>
+                                        <td data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-accountid="${sqldata.account_id}" id="btnSignatory">Ronniel Bacus</td>
                                         <td>${sqldata.bank_name} & ${sqldata.account_no}</td>
                                         <td>${sqldata.currency}</td>
-                                        <td>${sqldata.account_status}</td>
+                                        <td>
+                                            <select class="form-select form-select-sm" style="font-weight: bolder;" id="inputnmSelectStatus" data-accountid="${sqldata.account_id}">
+                                                <option value="${sqldata.account_status}" selected disabled>${sqldata.account_status}</option>
+                                                <option value="Active">Active</option>
+                                                <option value="In-active">In-active</option>
+                                                <option value="Closed">Closed</option>                                            
+                                            </select>
+                                        </td>
                                     </tr>
                                 `;
                             })
@@ -267,5 +305,55 @@
                     }
                 })
             }
+
+            $(document).on("change","#inputnmSelectStatus",function(){
+                var accountid = $(this).attr("data-accountid");
+                var accountstatus = $(this).val();
+                $("#inputnmAccountstatus").val(accountstatus);
+                $("#inputnmAccountid").val(accountid);
+                
+
+                if(confirm("Are you sure this account to be set as "+accountstatus+"?")){
+                    updateAccountstatus_v();
+                }else{
+                    alert("No changes made to account status.");
+                }
+            })
+
+            function updateAccountstatus_v(){
+                $.ajax({
+                    type:'ajax',
+                    method:'POST',
+                    url:'Entry/updateAccountstatus_c',
+                    data:$("#frmInputs").serialize(),
+                    dataType:'json',
+                    success:function(response){
+                        if(response.success){
+                            viewAccount_v();
+                        } else {
+                            alert("Failed to Update Account Status!");
+                        }
+                    }
+                })
+            }
+
+            $(document).on("click","#btnSignatory",function(e){
+                e.preventDefault();
+                var accountid = $(this).attr("data-accountid");
+
+                $("#inputnmAccountid").val(accountid);
+            })
+
+            $(document).on("click","#btnAddsignatory",function(e){
+                e.preventDefault();
+                var signatoryname = $("#inputnmSignatoryusername").val();
+                $("#inputnmSignatory").val(signatoryname);
+
+                if(signatoryname != ""){
+                    updateSignatory_v();
+                } else {
+                    alert("Please enter signatory name.");
+                }
+            })
         })
     </script>

@@ -47,5 +47,20 @@
                 return false;
             }
         }
+
+        function updateAccountstatus_m($accountid,$values){
+            $this->db->where("account_id",$accountid);
+            $this->db->update("tblaccounts",$values);
+
+            if($this->db->affected_rows()>0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        function updateSignatory_m(){
+            
+        }
     }
 ?>
