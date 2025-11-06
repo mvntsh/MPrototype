@@ -51,6 +51,7 @@
                 "signatory" => $this->input->post("txtnmSignatory"),
                 "currency" => $this->input->post("txtnmCurrency"),
                 "online_viewing" => $this->input->post("txtnmOnlineviewing"),
+                "online_banking" => $this->input->post("txtnmOnlineviewing"),
                 "account_status" => $this->input->post("txtnmAccountstatus")
             );
 
@@ -113,6 +114,40 @@
             );
 
             $response = $this->entry_m->updateAccountstatus_m($accountid,$values);
+
+            if($response){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
+
+        function updateSignatory_c(){
+            $data["success"] = false;
+
+            $accountid = $this->input->post("txtnmAccountid");
+
+            $values = array(
+                "signatory" => $this->input->post("txtnmSignatoryusername")
+            );
+
+            $response = $this->entry_m->updateSignatory_m($accountid,$values);
+
+            if($response){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
+
+        function updateOnlinebanking_c(){
+            $data["success"] = false;
+
+            $accountid = $this->input->post("txtnmAccountid");
+
+            $values = array(
+                "online_banking" => $this->input->post("txtnmOnlineviewing")
+            );
+
+            $response = $this->entry_m->updateOnlinebanking_m($accountid,$values);
 
             if($response){
                 $data["success"] = true;
