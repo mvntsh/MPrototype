@@ -96,15 +96,19 @@
                         </div>
                     </div>
                     <div class="card" style="margin-top: 1.5em; background-color: transparent; border-color: transparent; overflow-y: scroll; height: 665px; scrollbar-width: thin; scrollbar-color: #2e2e2e #6b6a6a;">
-                        <table id="tblAccounts" class="table table-bordered table-dark table-hover" style="width: 100%; zoom: 70%;">
+                        <table id="tblAccounts" class="table table-bordered table-dark table-hover" style="width: 100%; zoom: 75%;">
                             <thead>
+                                <tr>
+                                    <th colspan="2" style="text-align: center; font-size: 18pt;">Business Data</th>
+                                    <th colspan="4" style="text-align: center; font-size: 18pt;">Bank Data</th>
+                                </tr>
                                 <tr style="position: sticky; top: 0; height: 4em; vertical-align: middle; text-transform: uppercase;">
-                                    <th>Branch Name</th>
-                                    <th>Branch Address</th>
+                                    <th style="width: 15%;">Branch Name</th>
                                     <th>Signatories</th>
-                                    <th style="width: 15%;">Bank & Account No.</th>
+                                    <th style="width: 20%;">Bank & Account No.</th>
                                     <th style="width: 8%;">Currency</th>
                                     <th style="width: 8%;">Status</th>
+                                    <th style="width: 15%;">Last Modified</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -163,7 +167,6 @@
                                                 <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.48 1.48 0 0 1 0-2.098z"/>
                                             </svg>
                                         ${sqldata.branch_name}</td>
-                                        <td>${sqldata.branch_address} <strong style="color: red;">(${sqldata.update_status})</strong></td>
                                         <td data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-accountid="${sqldata.account_id}" id="btnSignatory">${sqldata.signatory}</td>
                                         <td>
                                             <svg data-accountid="${sqldata.account_id}" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16" style="color: ${sqldata.online_access_color};" id="btnBankonlineaccess">
@@ -179,6 +182,7 @@
                                                 <option value="Closed">Closed</option>                                            
                                             </select>
                                         </td>
+                                        <td>${sqldata.update_status}</td>
                                     </tr>
                                 `;
                             })
@@ -239,14 +243,13 @@
                                 tbody += `
                                     <tr style="height: 3em; vertical-align: middle;">
                                         <td>
-                                            <svg data-accountid="${sqldata.account_id}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-diamond-fill" viewBox="0 0 16 16" style="color: ${sqldata.online_award};" id="btnOnlineviewing">
+                                            <svg data-accountid="${sqldata.account_id}" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-diamond-fill" viewBox="0 0 16 16" style="color: ${sqldata.online_award};" id="btnOnlineviewing">
                                                 <path fill-rule="evenodd" d="M6.95.435c.58-.58 1.52-.58 2.1 0l6.515 6.516c.58.58.58 1.519 0 2.098L9.05 15.565c-.58.58-1.519.58-2.098 0L.435 9.05a1.48 1.48 0 0 1 0-2.098z"/>
                                             </svg>
                                         ${sqldata.branch_name}</td>
-                                        <td>${sqldata.branch_address} <strong style="color: red;">(${sqldata.update_status})</strong></td>
                                         <td data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-accountid="${sqldata.account_id}" id="btnSignatory">${sqldata.signatory}</td>
                                         <td>
-                                            <svg data-accountid="${sqldata.account_id}" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16" style="color: ${sqldata.online_access_color};" id="btnBankonlineaccess">
+                                            <svg data-accountid="${sqldata.account_id}" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16" style="color: ${sqldata.online_access_color};" id="btnBankonlineaccess">
                                                 <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
                                             </svg> ${sqldata.bank_name} & ${sqldata.account_no}
                                         </td>
@@ -259,6 +262,7 @@
                                                 <option value="Closed">Closed</option>                                            
                                             </select>
                                         </td>
+                                        <td>${sqldata.update_status}</td>
                                     </tr>
                                 `;
                             })
