@@ -31,13 +31,6 @@
             $this->form_validation->set_rules("txtnmOnlineviewing", "Online Viewing", "required");
             $this->form_validation->set_rules("txtnmAccountstatus", "Account Status", "required");
 
-            if ($this->form_validation->run() == TRUE) {
-                $data["success"] = true;
-            } else {
-                echo validation_errors();
-                echo json_encode($data);
-            }
-
             $values = array(
                 "bank_name" => $this->input->post("txtnmBankname"),
                 "account_no" => $this->input->post("txtnmAccountno"),
@@ -55,12 +48,13 @@
                 "account_status" => $this->input->post("txtnmAccountstatus")
             );
 
-            $response = $this->entry_m->insertAccount_m($values);
-
-            if($response){
+            if ($this->form_validation->run() == TRUE) {
+                $response = $this->entry_m->insertAccount_m($values);
                 $data["success"] = true;
-            }
-            echo json_encode($data);
+            } else {
+                echo validation_errors();
+                echo json_encode($data);
+            }          
         }
 
         function viewAccount_c(){
@@ -150,6 +144,19 @@
             $response = $this->entry_m->updateOnlinebanking_m($accountid,$values);
 
             if($response){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
+
+        function downloadFile_c(){
+            $data["success"] = false;
+
+            $accountstatus = $this->input->post("txtnmSelectstatus");
+
+            $data["data"] = $this->entry_m->downloadFile_m($accountstatus);
+
+            if(count($data["data"])>0){
                 $data["success"] = true;
             }
             echo json_encode($data);
