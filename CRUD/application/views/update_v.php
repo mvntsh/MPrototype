@@ -292,6 +292,7 @@
                     success:function(response){
                         if(response.success){
                             alert("Request updated successfully.");
+                            countRequest_v();
                             $("#frmInputs")[0].reset();
                             viewData_v();
                             $("#btnUpdate").prop("disabled", true);
@@ -301,5 +302,21 @@
                     }
                 })
             })
+
+            function countRequest_v(){
+                $.ajax({
+                    url:"Update/countRequest_c",
+                    type:"POST",
+                    dataType:"json",
+                    success:function(response){
+                        if(response.success){
+                            var count = response.data[0].countRequest;
+                            $("#requestBadge").text(count > 99 ? "99+" : count); // Display 99+ if count exceeds 99
+                        } else {
+                            $("#requestBadge").text("0"); // Default to 0 if no data found
+                        }
+                    }
+                })
+            }
         });
     </script>

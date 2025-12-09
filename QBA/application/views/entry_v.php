@@ -244,8 +244,26 @@
             $(document).on("click","#btnSave",function(e){
                 e.preventDefault();
 
-                entry_v();
+                existAccount_v();
             })
+
+            function existAccount_v(){
+                $.ajax({
+                    type:'ajax',
+                    method:'POST',
+                    url:'Entry/existAccount_c',
+                    data:$("#inputnmAccountno").serialize(),
+                    dataType:'json',
+                    success:function(response){
+                        if(response.success){
+                            alert("Account No. already exists!");
+                            $("#inputnmAccountno").focus();
+                        } else {
+                            entry_v();
+                        }
+                    }
+                })
+            }
 
             function entry_v(){
                 $.ajax({

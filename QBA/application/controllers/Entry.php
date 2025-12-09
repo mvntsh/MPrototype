@@ -14,6 +14,19 @@
             $this->load->view('common/footer');
         }
 
+        function existAccount_c(){
+            $data["success"] = false;
+
+            $accountno = $this->input->post("txtnmAccountno");
+
+            $response = $this->entry_m->existAccount_m($accountno);
+
+            if($response){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
+
         function entry_c(){
             $data["success"] = false;
 
