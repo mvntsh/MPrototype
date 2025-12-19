@@ -15,6 +15,7 @@
                         if(response.exists){
                             // alert("ID No. already exists.");
                             $("#liveToast").css("background-color", "#edd41a");
+                            $("#liveToast").css("color", "black");
                             $("#toastMessage").text("ID No. already exists.");
                         }else{
                             insert_validation_v();
@@ -62,14 +63,49 @@
                 });
             }
 
-            const toastTrigger = document.getElementById('btnCreate')
-            const toastLiveExample = document.getElementById('liveToast')
+            $("#btnLogin").click(function(e) {
+                e.preventDefault();
+                authenticate_v();
+            });
 
-            if (toastTrigger) {
-            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
-            toastTrigger.addEventListener('click', () => {
-                toastBootstrap.show()
-            })
+            function authenticate_v(){
+                $.ajax({
+                    url:"Create/authenticate_c",
+                    type:"POST",
+                    data:$("#loginForm").serialize(),
+                    dataType:"json",
+                    success:function(response){
+                        if(response.success){
+                            $("#liveToast").css("background-color", "#0e9e0e");
+                            $("#toastMessage").text("Login Successfully.");
+                            window.location.href = "Dashboard";
+                        }else{
+                            $("#liveToast").css("background-color", "#ed1a1a");
+                            $("#liveToast").css("color", "#edd41a");
+                            $("#toastMessage").text("Invalid Username or Password.");
+                        }
+                    }
+                })
+            }
+
+            const toastCreate = document.getElementById('btnCreate')
+            const toastMessageCreate = document.getElementById('liveToast')
+
+            if (toastCreate) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastMessageCreate)
+                toastCreate.addEventListener('click', () => {
+                    toastBootstrap.show()
+                })
+            }
+
+            const toastLogin = document.getElementById('btnLogin')
+            const toastMessageLogin = document.getElementById('liveToast')
+
+            if (toastLogin) {
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastMessageLogin)
+                toastLogin.addEventListener('click', () => {
+                    toastBootstrap.show()
+                })
             }
         });
     </script>

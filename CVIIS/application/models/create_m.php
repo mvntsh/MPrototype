@@ -25,5 +25,15 @@
                 return false;
             }
         }
-    }
+
+        function authenticate_m($username,$password){
+            $query = $this->db->query("SELECT * FROM tblusers WHERE user_name = '$username' AND user_password = '$password'")->result_array();
+
+            if(count($query) > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+}
 ?>

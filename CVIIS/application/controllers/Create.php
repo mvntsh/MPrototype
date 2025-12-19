@@ -66,5 +66,20 @@
             }
             echo json_encode($data);
         }
+
+        function authenticate_c(){
+            $data["success"] = false;
+
+            $username = $this->input->post("txtnmUsername");
+            $password = $this->input->post("txtnmPassword");
+
+            $response = $this->create_m->authenticate_m($username,$password);
+            
+            if($response){
+                $data["success"] = true;
+                $data["session"] = $username;
+            }
+            echo json_encode($data);
+        }
     }
 ?>

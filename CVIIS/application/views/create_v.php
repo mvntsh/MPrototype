@@ -7,19 +7,21 @@
                         <div class="col-md-9">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="form-floating mb-3" style="zoom: 70%;">
-                                        <input type="email" class="form-control" id="floatingInput" placeholder="Username" autocomplete="off" style="border-radius: 0; background-color: #96cfeb; border-color: #96cfeb;">
-                                        <label for="floatingInput">Username</label>
-                                    </div>
-                                    <div class="form-floating" style="zoom: 70%;">
-                                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off" style="border-radius: 0; background-color: #96cfeb; border-color: #96cfeb;">
-                                        <label for="floatingPassword">Password</label>
-                                    </div>
+                                    <form id="loginForm">
+                                        <div class="form-floating mb-3" style="zoom: 70%;">
+                                            <input type="email" class="form-control" id="inputnmUsername" name="txtnmUsername" placeholder="Username" autocomplete="off" style="border-radius: 0; background-color: #96cfeb; border-color: #96cfeb;">
+                                            <label for="inputnmUsername">Username</label>
+                                        </div>
+                                        <div class="form-floating" style="zoom: 70%;">
+                                            <input type="password" class="form-control" id="inputnmPassword" name="txtnmPassword" placeholder="Password" autocomplete="off" style="border-radius: 0; background-color: #96cfeb; border-color: #96cfeb;">
+                                            <label for="inputnmPassword">Password</label>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-3 d-grid">
-                            <button class="btn btn-primary btn-lg" style="background-color: #5789a1; border-color: #5789a1; border-radius: 0;">Login</button>
+                            <button class="btn btn-primary btn-lg" style="background-color: #5789a1; border-color: #5789a1; border-radius: 0;" id="btnLogin">Login</button>
                         </div>
                     </div>
                 </div>
