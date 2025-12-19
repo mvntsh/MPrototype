@@ -14,5 +14,16 @@
                 return false;
             }
         }
+
+        function validate_idno_m($idno){
+            $this->db->where("user_idno",$idno);
+            $query = $this->db->get("tblusers");
+
+            if($query->num_rows()>0){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 ?>

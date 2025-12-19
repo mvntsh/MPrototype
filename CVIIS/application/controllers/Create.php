@@ -16,8 +16,18 @@
             $this->load->view('common/footer');
         }
 
-        function insert_c(){
-            $data["success"] = false;
+        function validate_idno_c(){
+            $idno = $this->input->post("txtnmIdno");
+            $response = $this->create_m->validate_idno_m($idno);
+
+            $data["exists"] = false;
+            if($response){
+                $data["exists"] = true;
+            }
+            echo json_encode($data);
+        }
+
+        function insert_validation_c(){
 
             $this->form_validation->set_rules("txtnmFirstname", "First Name", "required");
             $this->form_validation->set_rules("txtnmLastname", "Last Name", "required");
@@ -25,6 +35,18 @@
             $this->form_validation->set_rules("txtnmUsername", "Username", "required");
             $this->form_validation->set_rules("txtnmPassword", "Password", "required|min_length[8]");
             $this->form_validation->set_rules("txtnmConfirmPassword", "Confirm Password", "required|matches[txtnmPassword]");
+
+
+            if ($this->form_validation->run() == TRUE) {
+                $data["success"] = true;
+            }else{
+                $data["success"] = false;
+            }
+            echo json_encode($data); 
+        }
+
+        function insert_c(){
+            $data["success"] = false;
 
             $data = array(
                 'user_firstname' => $this->input->post('txtnmFirstname'),
@@ -34,13 +56,12 @@
                 'user_password' => password_hash($this->input->post('txtnmPassword'), PASSWORD_BCRYPT)
             );
 
-            if ($this->form_validation->run() == TRUE) {
-                $response = $this->create_m->insert_m($data);
+            $response = $this->create_m->insert_m($data);
+
+            if($response){
                 $data["success"] = true;
-            } else {
-                echo validation_errors();
-                echo json_encode($data);
-            } 
+            }
+            echo json_encode($data);
         }
     }
 ?>
