@@ -1,6 +1,6 @@
     <div class="row" style="margin: 1em;">
         <div class="col-md-6">
-            <div class="card" style="background-color: transparent; border-color: transparent; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
+            <div class="card" style="background-color: transparent; border-color: transparent; box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; zoom: 150%;">
                 <div class="card-body">
                     <h4 style="color: #9ec6d9; margin-bottom: 1.5em;">Login</h4>
                     <div class="row">
@@ -18,7 +18,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 d-flex">
+                        <div class="col-md-3 d-grid">
                             <button class="btn btn-primary btn-lg" style="background-color: #5789a1; border-color: #5789a1; border-radius: 0;">Login</button>
                         </div>
                     </div>
@@ -54,6 +54,16 @@
                             <input type="password" class="form-control" id="inputnmConfirmPassword" name="txtnmConfirmPassword" placeholder="Confirm Password" autocomplete="off" style="border-radius: 0; background-color: #96cfeb; border-color: #96cfeb;">
                             <label for="inputnmConfirmPassword">Confirm Password</label>
                         </div>
+                        <div class="form-floating mb-3" style="zoom: 70%;">
+                        <select class="form-select" id="inputnmDepartment" name="txtnmDepartment" aria-label="Floating label select example" style="border-radius: 0; background-color: #96cfeb; border-color: #96cfeb;">
+                            <option value="1" selected>Disbursement - Processing</option>
+                            <option value="2">Disbursement - Reporting</option>
+                            <option value="3">Bills Payment</option>
+                            <option value="4">Direct-to-Bank</option>
+                        </select>
+                        <label for="inputnmDepartment">Department</label>
+                        </div>
+                        <input type="text" class="form-control" id="inputnmUserstatus" name="txtnmUserstatus" value="Active" hidden>
                     </form>
                     <div class="row">
                         <div class="col-md-8"></div>

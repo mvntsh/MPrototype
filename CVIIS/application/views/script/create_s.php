@@ -1,3 +1,4 @@
+    
     <script type="text/javascript">
         $(document).ready(function() {
             $("#btnCreate").click(function() {
@@ -12,7 +13,9 @@
                     dataType:"json",
                     success:function(response){
                         if(response.exists){
-                            alert("ID No. already exists.");
+                            // alert("ID No. already exists.");
+                            $("#liveToast").css("background-color", "#edd41a");
+                            $("#toastMessage").text("ID No. already exists.");
                         }else{
                             insert_validation_v();
                         }
@@ -30,7 +33,10 @@
                         if(response.success){
                             insert_v();
                         }else{
-                            alert("Please input all required fields correctly.");
+                            $("#liveToast").css("background-color", "#ed1a1a");
+                            $("#liveToast").css("color", "#edd41a");
+                            $("#toastMessage").text("Please input all required fields correctly.");
+                            // alert("Please input all required fields correctly.");
                         }
                     }
                 })
@@ -44,7 +50,8 @@
                     dataType: "json",
                     success: function(response) {
                         if (response.success) {
-                            alert("User created successfully");
+                            $("#liveToast").css("background-color", "#0e9e0e");
+                            $("#toastMessage").text("User created successfully.");
                             $("#createForm")[0].reset();
                         } else {
                             alert("Failed to create user");
@@ -53,6 +60,16 @@
                         alert("Error line 21");
                     }
                 });
+            }
+
+            const toastTrigger = document.getElementById('btnCreate')
+            const toastLiveExample = document.getElementById('liveToast')
+
+            if (toastTrigger) {
+            const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+            toastTrigger.addEventListener('click', () => {
+                toastBootstrap.show()
+            })
             }
         });
     </script>

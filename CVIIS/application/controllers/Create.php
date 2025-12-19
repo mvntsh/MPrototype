@@ -12,6 +12,7 @@
             $this->load->view('common/header');
             $this->load->view('common/style');
             $this->load->view('create_v');
+            $this->load->view('common/toast');
             $this->load->view('script/create_s');
             $this->load->view('common/footer');
         }
@@ -53,7 +54,9 @@
                 'user_lastname' => $this->input->post('txtnmLastname'),
                 'user_idno' => $this->input->post('txtnmIdno'),
                 'user_name' => $this->input->post('txtnmUsername'),
-                'user_password' => password_hash($this->input->post('txtnmPassword'), PASSWORD_BCRYPT)
+                'user_password' => password_hash($this->input->post('txtnmPassword'), PASSWORD_BCRYPT),
+                'user_department' => $this->input->post('txtnmDepartment'),
+                'user_status' => $this->input->post('txtnmUserstatus')
             );
 
             $response = $this->create_m->insert_m($data);
