@@ -78,7 +78,6 @@
                         if(response.success){
                             $("#liveToast").css("background-color", "#0e9e0e");
                             $("#toastMessage").text("Login Successfully.");
-                            window.location.href = "Dashboard";
                         }else{
                             $("#liveToast").css("background-color", "#ed1a1a");
                             $("#liveToast").css("color", "#edd41a");
