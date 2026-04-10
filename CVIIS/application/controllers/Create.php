@@ -77,9 +77,6 @@
             
             if($response){
                 $data["success"] = true;
-                $data["session"] = $username;
-                $this->load->helper('url');
-                redirect('Create','refresh'); 
             }
             echo json_encode($data);
         }

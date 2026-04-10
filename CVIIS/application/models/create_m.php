@@ -27,9 +27,9 @@
         }
 
         function authenticate_m($username,$password){
-            $query = $this->db->query("SELECT * FROM tblusers WHERE user_name = '$username' AND user_password = '$password'")->result_array();
+            $query = $this->db->query("SELECT * FROM `tblusers` WHERE user_name='$username' AND user_password='$password'")->result_array();
 
-            if(count($query) > 0){
+            if($query){
                 return true;
             }else{
                 return false;

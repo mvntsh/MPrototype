@@ -14,8 +14,6 @@
                     success:function(response){
                         if(response.exists){
                             // alert("ID No. already exists.");
-                            $("#liveToast").css("background-color", "#edd41a");
-                            $("#liveToast").css("color", "black");
                             $("#toastMessage").text("ID No. already exists.");
                         }else{
                             insert_validation_v();
@@ -34,8 +32,6 @@
                         if(response.success){
                             insert_v();
                         }else{
-                            $("#liveToast").css("background-color", "#ed1a1a");
-                            $("#liveToast").css("color", "#edd41a");
                             $("#toastMessage").text("Please input all required fields correctly.");
                             // alert("Please input all required fields correctly.");
                         }
@@ -51,8 +47,6 @@
                     dataType: "json",
                     success: function(response) {
                         if (response.success) {
-                            $("#liveToast").css("background-color", "#0e9e0e");
-                            $("#toastMessage").text("User created successfully.");
                             $("#createForm")[0].reset();
                         } else {
                             alert("Failed to create user");
@@ -76,13 +70,14 @@
                     dataType:"json",
                     success:function(response){
                         if(response.success){
-                            $("#liveToast").css("background-color", "#0e9e0e");
                             $("#toastMessage").text("Login Successfully.");
                         }else{
                             $("#liveToast").css("background-color", "#ed1a1a");
                             $("#liveToast").css("color", "#edd41a");
                             $("#toastMessage").text("Invalid Username or Password.");
                         }
+                    },error:function(response){
+                        alert("Error line 87");
                     }
                 })
             }
