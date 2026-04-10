@@ -95,6 +95,80 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
 </div>
+	<table class="table table-bordered table-hover">
+		<tr>
+			<th>hello world.</th>
+			<wa-button variant="brand">Click me!</wa-button>
+			<wa-input placeholder="Small" size="small">
+				<wa-icon name="house" slot="start"></wa-icon>
+				<wa-icon name="comment" slot="end"></wa-icon>
+			</wa-input>
+			<div class="wa-grid" style="--min-column-size: 30ch;">
+  <wa-card>
+    <div class="wa-flank">
+      <wa-avatar shape="rounded">
+        <wa-icon slot="icon" name="globe"></wa-icon>
+      </wa-avatar>
+      <div class="wa-stack wa-gap-3xs">
+        <span class="wa-caption-xs">Population (Zion)</span>
+        <span class="wa-cluster wa-gap-xs">
+          <span class="wa-heading-2xl">251,999</span>
+          <wa-badge variant="danger">-3%&nbsp;<wa-icon name="arrow-trend-down"></wa-icon></wa-badge>
+        </span>
+      </div>
+    </div>
+  </wa-card>
+  <wa-card>
+    <div class="wa-flank">
+      <wa-avatar shape="rounded">
+        <wa-icon slot="icon" name="brain-circuit"></wa-icon>
+      </wa-avatar>
+      <div class="wa-stack wa-gap-3xs">
+        <span class="wa-caption-xs">Minds Freed</span>
+        <span class="wa-cluster wa-gap-xs">
+          <span class="wa-heading-2xl">0.36%</span>
+          <wa-badge variant="success">+0.03%&nbsp;<wa-icon name="arrow-trend-up"></wa-icon></wa-badge>
+        </span>
+      </div>
+    </div>
+  </wa-card>
+  <wa-card>
+    <div class="wa-flank">
+      <wa-avatar shape="rounded">
+        <wa-icon slot="icon" name="robot"></wa-icon>
+      </wa-avatar>
+      <div class="wa-stack wa-gap-3xs">
+        <span class="wa-caption-xs">Agents Discovered</span>
+        <span class="wa-cluster wa-gap-xs">
+          <span class="wa-heading-2xl">3</span>
+          <wa-badge variant="neutral">±0%&nbsp;<wa-icon name="wave-triangle"></wa-icon></wa-badge>
+        </span>
+      </div>
+    </div>
+  </wa-card>
+  <wa-card>
+    <div class="wa-flank">
+      <wa-avatar shape="rounded">
+        <wa-icon slot="icon" name="spaghetti-monster-flying"></wa-icon>
+      </wa-avatar>
+      <div class="wa-stack wa-gap-3xs">
+        <span class="wa-caption-xs">Sentinels Controlled</span>
+        <span class="wa-cluster wa-gap-xs">
+          <span class="wa-heading-2xl">208</span>
+          <wa-badge variant="success">+1%&nbsp;<wa-icon name="arrow-trend-up"></wa-icon></wa-badge>
+        </span>
+      </div>
+    </div>
+  </wa-card>
+</div>
 
+<style>
+  wa-badge > wa-icon {
+    color: color-mix(in oklab, currentColor, transparent 40%);
+  }
+</style>
+
+		</tr>
+	</table>
 </body>
 </html>
