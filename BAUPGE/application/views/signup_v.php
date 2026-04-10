@@ -12,36 +12,45 @@
                     <div class="card-body">
                         <h1 class="card-title" style="color: #590c0c; letter-spacing: -4px; text-transform: uppercase;">Sign Up</h1>
                         <p class="card-text" style="color: #590c0c">Please fill in the form below to create an account.</p>
+                        <div class="toast align-items-center text-bg-success border-0" role="alert" aria-live="assertive" aria-atomic="true" id="liveToast">
+                            <div class="d-flex">
+                                <div class="toast-body" id="toastMessage">
+                                Hello, world! This is a toast message.
+                                </div>
+                                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                        </div>
                         <div class="card" style="border-radius: 0px; background-color: #bd8a8a; box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; margin-top: 5em;">
                             <div class="card-body">
                                 <form id="signupForm">
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="idFirstname" placeholder="1">
-                                        <label for="floatingInput"><i class="fa-solid fa-1" style="color: rgb(156, 12, 12);"></i>First Name.</label>
+                                        <input type="text" name="nmFirstname" class="form-control" id="idFirstname" placeholder="1">
+                                        <label for="idFirstname"><i class="fa-solid fa-1" style="color: rgb(156, 12, 12);"></i>First Name.</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="idLastname" placeholder="2">
-                                        <label for="floatingInput"><i class="fa-solid fa-2" style="color: rgb(156, 12, 12);"></i>Last Name.</label>
+                                        <input type="text" name="nmLastname" class="form-control" id="idLastname" placeholder="2">
+                                        <label for="idLastname"><i class="fa-solid fa-2" style="color: rgb(156, 12, 12);"></i>Last Name.</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="idIDNumber" placeholder="3">
-                                        <label for="floatingInput"><i class="fa-solid fa-3" style="color: rgb(156, 12, 12);"></i>ID Number.</label>
+                                        <input type="text" name="nmIdno" class="form-control" id="idIDNumber" placeholder="3">
+                                        <label for="idIDNumber"><i class="fa-solid fa-3" style="color: rgb(156, 12, 12);"></i>ID Number.</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="idPassword" placeholder="4">
-                                        <label for="floatingInput"><i class="fa-solid fa-4" style="color: rgb(156, 12, 12);"></i>Password.</label>
+                                        <input type="password" name="nmPassword" class="form-control" id="idPassword" placeholder="4">
+                                        <label for="idPassword"><i class="fa-solid fa-4" style="color: rgb(156, 12, 12);"></i>Password.</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="idConfirmPassword" placeholder="5">
-                                        <label for="floatingInput"><i class="fa-solid fa-5" style="color: rgb(156, 12, 12);"></i>Confirm Password.</label>
+                                        <input type="password" name="nmConfirmPassword" class="form-control" id="idConfirmPassword" placeholder="5">
+                                        <label for="idConfirmPassword"><i class="fa-solid fa-5" style="color: rgb(156, 12, 12);"></i>Confirm Password.</label>
                                     </div>
+                                    <input type="text" id="idStatus" name="nmStatus" value="1" placeholder="6" hidden>
                                 </form>
                                 <div class="row">
                                     <div class="col-md-8">
                                         <p style="font-size: 12pt; margin-top: 1em;">You have an account? <a href="#" style="color: #870101; font-weight: bolder;">Log in here.</a></p>
                                     </div>
                                     <div class="col-md-4 d-grid">
-                                        <button type="submit" class="btn btn-danger btn-lg btn-block" style="text-transform: uppercase; letter-spacing: -1px;">Save Data.</button>
+                                        <button id="btnSave" class="btn btn-danger btn-lg btn-block" style="text-transform: uppercase; letter-spacing: -1px;">Save Data.</button>
                                     </div>
                                 </div>
                             </div>
@@ -54,5 +63,45 @@
         <script type="text/javascript">
             $(document).ready(function() {
                 console.log("Hello World.");
+
+                $("#btnSave").click(function(e){
+                    e.preventDefault();
+                    validateUsers();
+                })
+                
+                function validateUsers(){
+                    $.ajax({
+                        type:"post",
+                        url:"signupform/validateUsers",
+                        data:$("#signupForm").serialize(),
+                        dataType:"json",
+                        success:function(response){
+                            if(response.success){
+                                alert("Validation successful.");
+                            }else{
+                                $("#toastMessage").text("Validation failed. Please check your inputs.");
+						        $('#liveToast').toast('show');
+                                $("#liveToast").addClass("text-bg-danger");
+                                $(this).removeClass("text-bg-success");
+                            }
+                        }
+                    })
+                }
+
+                function saveUsers_v(){
+                    $.ajax({
+                        type:"post",
+                        url:"signupform/saveUsers_c",
+                        data:$("#signupForm").serialize(),
+                        dataType:"json",
+                        success:function(response){
+                            if(response.success){
+                                alert("Data saved successfully.");
+                            }else{
+                                alert("Failed to save data.");
+                            }
+                        }
+                    })
+                }
             });
         </script>
