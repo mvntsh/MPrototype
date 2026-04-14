@@ -25,15 +25,15 @@
                                 <form id="signupForm">
                                     <div class="form-floating mb-3">
                                         <input type="text" name="nmFirstname" class="form-control" id="idFirstname" placeholder="1">
-                                        <label for="idFirstname"><i class="fa-solid fa-1" style="color: rgb(156, 12, 12);"></i>First Name.</label>
+                                        <label for="idFirstname" style="letter-spacing: -2px;"><i class="fa-solid fa-1" style="color: rgb(156, 12, 12);"></i>First Name.</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input type="text" name="nmLastname" class="form-control" id="idLastname" placeholder="2">
-                                        <label for="idLastname"><i class="fa-solid fa-2" style="color: rgb(156, 12, 12);"></i>Last Name.</label>
+                                        <label for="idLastname" style="letter-spacing: -2px;"><i class="fa-solid fa-2" style="color: rgb(156, 12, 12);"></i>Last Name.</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input type="text" name="nmIdno" class="form-control" id="idIDNumber" placeholder="3">
-                                        <label for="idIDNumber"><i class="fa-solid fa-3" style="color: rgb(156, 12, 12);"></i>ID Number.</label>
+                                        <label for="idIDNumber" style="letter-spacing: -2px;"><i class="fa-solid fa-3" style="color: rgb(156, 12, 12);"></i>ID Number.</label>
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input type="password" name="nmPassword" class="form-control" id="idPassword" placeholder="4">
@@ -41,16 +41,16 @@
                                     </div>
                                     <div class="form-floating mb-3">
                                         <input type="password" name="nmConfirmPassword" class="form-control" id="idConfirmPassword" placeholder="5">
-                                        <label for="idConfirmPassword"><i class="fa-solid fa-5" style="color: rgb(156, 12, 12);"></i>Confirm Password.</label>
+                                        <label for="idConfirmPassword" style="letter-spacing: -2px;"><i class="fa-solid fa-5" style="color: rgb(156, 12, 12);"></i>Confirm Password.</label>
                                     </div>
                                     <input type="text" id="idStatus" name="nmStatus" value="1" placeholder="6" hidden>
                                 </form>
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <p style="font-size: 12pt; margin-top: 1em;">You have an account? <a href="#" style="color: #870101; font-weight: bolder;">Log in here.</a></p>
+                                        <p style="font-size: 12pt; margin-top: 1em;">You have an account? <a href="Loginform" style="color: #870101; font-weight: bolder;">Log in here.</a></p>
                                     </div>
                                     <div class="col-md-4 d-grid">
-                                        <button id="btnSave" class="btn btn-danger btn-lg btn-block" style="text-transform: uppercase; letter-spacing: -1px;">Save Data.</button>
+                                        <button id="btnSave" class="btn btn-danger" style="text-transform: uppercase; letter-spacing: -1px;">Save Data.</button>
                                     </div>
                                 </div>
                             </div>
@@ -62,27 +62,35 @@
         </div>
         <script type="text/javascript">
             $(document).ready(function() {
-                console.log("Hello World.");
+                $("#idFirstname").focus();
+
+                $('#idIDNumber').keypress(function(e){    
+        
+                    var charCode = (e.which) ? e.which : event.keyCode    
+                    if (String.fromCharCode(charCode).match(/[^0-9]/g))
+                    return false;                        
+
+                });
 
                 $("#btnSave").click(function(e){
                     e.preventDefault();
-                    validateUsers();
+                    validateUsers_v();
                 })
                 
-                function validateUsers(){
+                function validateUsers_v(){
                     $.ajax({
+                        url:"signupform/validateUsers_c",
                         type:"post",
-                        url:"signupform/validateUsers",
                         data:$("#signupForm").serialize(),
                         dataType:"json",
                         success:function(response){
                             if(response.success){
-                                alert("Validation successful.");
+                                $("#liveToast").removeClass("text-bg-danger");
+                                saveUsers_v();
                             }else{
                                 $("#toastMessage").text("Validation failed. Please check your inputs.");
 						        $('#liveToast').toast('show');
                                 $("#liveToast").addClass("text-bg-danger");
-                                $(this).removeClass("text-bg-success");
                             }
                         }
                     })
@@ -96,9 +104,12 @@
                         dataType:"json",
                         success:function(response){
                             if(response.success){
-                                alert("Data saved successfully.");
+                                $("#liveToast").addClass("text-bg-success");
+                                $("#toastMessage").text("Data saved successfully.");
+						        $('#liveToast').toast('show');
+                                $("#signupForm")[0].reset();
                             }else{
-                                alert("Failed to save data.");
+                                console.log("Failed to save data.");
                             }
                         }
                     })

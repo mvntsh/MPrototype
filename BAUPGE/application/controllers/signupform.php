@@ -14,12 +14,12 @@
             $this->load->view('common/footer');
         }
 
-        function validateUsers(){
+        function validateUsers_c(){
 
             $this->form_validation->set_rules("nmFirstname", "1", "required");
             $this->form_validation->set_rules("nmLastname", "2", "required");
             $this->form_validation->set_rules("nmIdno", "3", "required");
-            $this->form_validation->set_rules("nmPassword", "4", "required|min_length[25]");
+            $this->form_validation->set_rules("nmPassword", "4", "required");
             $this->form_validation->set_rules("nmConfirmPassword", "5", "required|matches[nmPassword]");
             $this->form_validation->set_rules("nmStatus", "6", "required");
 
