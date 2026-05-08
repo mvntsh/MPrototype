@@ -19,6 +19,7 @@
 
             $this->form_validation->set_rules("nmAccountname", "Account Name", "required");
             $this->form_validation->set_rules("nmAccountno", "Account No", "required");
+            $this->form_validation->set_rules("nmDate", "Date", "required");
 
 
             if ($this->form_validation->run() == TRUE) {
@@ -31,10 +32,9 @@
 
         function insert_inhousevalidation_c(){
             $this->form_validation->set_rules("nmRfpno", "Request number", "required");
-            $this->form_validation->set_rules("nmAmount", "Inhouse Contact", "required");
-            $this->form_validation->set_rules("nmVoucherNo", "Inhouse Email", "required");
-            $this->form_validation->set_rules("nmDate", "Inhouse Email", "required");
-            $this->form_validation->set_rules("nmBatchno", "Inhouse Email", "required");
+            $this->form_validation->set_rules("nmAmount", "Amount", "required");
+            $this->form_validation->set_rules("nmVoucherNo", "Voucher number", "required");
+            $this->form_validation->set_rules("nmBatchno", "Batch number", "required");
 
             if ($this->form_validation->run() == TRUE) {
                 $data["success"] = true;
