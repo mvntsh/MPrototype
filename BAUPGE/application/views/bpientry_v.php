@@ -1,4 +1,4 @@
-    <div class="row" style="margin: .5em;">
+    <div class="row" style="margin: .5em; cursor: default;">
         <div class="col-md-6">
             <div class="card" style="border-radius: 0px; height: 580px; box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
                 <div class="card-body">
@@ -100,8 +100,8 @@
                                 <label for="idVoucherNo" style="letter-spacing: -2px;"> Voucher No.</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <input type="text" name="nmBatchno" class="form-control" id="idBatch" placeholder="1" style="background-color: #fce9c7; border-color: transparent;">
-                                <label for="idBatch" style="letter-spacing: -2px;"> Batch No.</label>
+                                <input type="text" name="nmBatchno" class="form-control" id="idBatchno" placeholder="1" style="background-color: #fce9c7; border-color: transparent;">
+                                <label for="idBatchno" style="letter-spacing: -2px;"> Batch No.</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <textarea type="text" name="nmDescription" class="form-control" id="idDescription" placeholder="1" style="background-color: #fce9c7; border-color: transparent; height: 100px;" rows="5"></textarea>
@@ -167,13 +167,11 @@
                     dataType:'json',
                     success:function(response){
                         if(response.success){
+                            emptyBankDetails();
                             $("#idInhouseDetails").fadeIn(500);
-                            $("#idAccountname,#idAccountno,#idDate").removeClass("is-invalid");
-                            $("#idAccountname,#idAccountno,#idDate").addClass("is-valid");
                             $("#idRequestNo").focus();
                         }else{
                             emptyBankDetails();
-                            $("#idInhouseDetails").fadeOut(500);
                         }
                     }
                 })
@@ -192,6 +190,8 @@
                     $("#idDate").addClass("is-invalid");
                 }else{
                     $("#idAccountname,#idAccountno,#idDate").removeClass("is-invalid");
+                    $("#idAccountname,#idAccountno,#idDate").addClass("is-valid");
+                    $("#idInhouseDetails").fadeOut(500);
                 }
             }
 
@@ -204,9 +204,6 @@
                     success:function(response){
                         if(response.success){
                             emptyInhouseDetails();
-                            alert("Data saved successfully!");
-                            $("#idRequestNo,#idAmount,#idVoucherNo,#idDate,#idBatchno").removeClass("is-invalid");
-                            $("#idRequestNo,#idAmount,#idVoucherNo,#idDate,#idBatchno").addClass("is-valid");
                         }else{
                             emptyInhouseDetails();
                         }
@@ -218,8 +215,8 @@
                 var idRequestNo = $("#idRequestNo").val();
                 var idAmount = $("#idAmount").val();
                 var idVoucherNo = $("#idVoucherNo").val();
-                
                 var idBatchno = $("#idBatchno").val();
+                var idDescription = $("#idDescription").val();
                 
 
                 if(idRequestNo==("")>0){
@@ -228,12 +225,13 @@
                     $("#idAmount").addClass("is-invalid");
                 }else if(idVoucherNo==("")>0){
                     $("#idVoucherNo").addClass("is-invalid");
-                }else if(idDate==("")>0){
-                    $("#idDate").addClass("is-invalid");
                 }else if(idBatchno==("")>0){
                     $("#idBatchno").addClass("is-invalid");
+                }else if(idDescription==("")>0){
+                    $("#idDescription").addClass("is-invalid");
                 }else{
-                    $("#idRequestNo,#idAmount,#idVoucherNo,#idDate,#idBatchno").removeClass("is-invalid");
+                    $("#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").removeClass("is-invalid");
+                    $("#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").addClass("is-valid");
                 }
             }
 
