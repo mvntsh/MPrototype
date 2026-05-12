@@ -11,7 +11,7 @@
                                     <option value="2">Unenrolled</option>
                                     <option value="3">Own</option>
                                 </select>
-                                <label for="idAccountType" style="letter-spacing: -2px;">Account type</label>
+                                <label for="idAccountType" style="letter-spacing: -2px;"><i class="fa-solid fa-1" style="color: rgb(156, 12, 12);"></i> Account type</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <select class="form-select" id="idTransactionType" aria-label="Floating label select example" style="background-color: #fce9c7; border-color: transparent;">
@@ -49,13 +49,13 @@
                                     <option value="32">Vis-Advertising</option>
                                     <option value="33">Vis-Supplier</option>
                                 </select>
-                                <label for="idTransactionType" style="letter-spacing: -2px;">Transaction type</label>
+                                <label for="idTransactionType" style="letter-spacing: -2px;"><i class="fa-solid fa-2" style="color: rgb(156, 12, 12);"></i> Transaction type</label>
                             </div>
                             <div class="row">
                                 <div class="col-md-10">
                                     <div class="form-floating mb-3">
                                         <input type="text" name="nmAccountname" class="form-control" id="idAccountname" placeholder="1" style="background-color: #fce9c7; border-color: transparent;" autocomplete="off">
-                                        <label for="idAccountname" style="letter-spacing: -2px;"> Account Name.</label>
+                                        <label for="idAccountname" style="letter-spacing: -2px;"><i class="fa-solid fa-3" style="color: rgb(156, 12, 12);"></i> Account Name.</label>
                                     </div>
                                 </div>
                                 <div class="col-md-2 d-grid">
@@ -64,11 +64,11 @@
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" name="nmAccountno" class="form-control" id="idAccountno" placeholder="1" style="background-color: #fce9c7; border-color: transparent;" autocomplete="off">
-                                <label for="idAccountno" style="letter-spacing: -2px;"> Account No.</label>
+                                <label for="idAccountno" style="letter-spacing: -2px;"><i class="fa-solid fa-4" style="color: rgb(156, 12, 12);"></i> Account No.</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="date" name="nmDate" class="form-control" id="idDate" placeholder="1" style="background-color: #fce9c7; border-color: transparent;">
-                                <label for="idDate" style="letter-spacing: -2px;"> Date</label>
+                                <label for="idDate" style="letter-spacing: -2px;"><i class="fa-solid fa-5" style="color: rgb(156, 12, 12);"></i> Date</label>
                             </div>
                         </div>
                     </form>
@@ -82,30 +82,30 @@
             </div>
         </div>
         <div class="col-md-6">
-            <div class="card" style="border-radius: 0px; height: 580px; box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;" id="idInhouseDetails">
+            <div class="card" style="border-radius: 0px; height: 580px; box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; display: none;" id="idInhouseDetails">
                 <div class="card-body">
                     <h4>In-house Details.</h4>
                     <div style="margin-top: 3em;">
                         <form id="frmInhouse">
                             <div class="form-floating mb-3">
                                 <input type="text" name="nmRequestno" class="form-control" id="idRequestNo" placeholder="1" style="background-color: #fce9c7; border-color: transparent;">
-                                <label for="idRequestNo" style="letter-spacing: -2px;"> Request No.</label>
+                                <label for="idRequestNo" style="letter-spacing: -2px;"><i class="fa-solid fa-1" style="color: rgb(156, 12, 12);"></i> Request No.</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" name="nmAmount" class="form-control" id="idAmount" placeholder="1" style="background-color: #fce9c7; border-color: transparent;">
-                                <label for="idAmount" style="letter-spacing: -2px;"> Amount.</label>
+                                <label for="idAmount" style="letter-spacing: -2px;"><i class="fa-solid fa-2" style="color: rgb(156, 12, 12);"></i> Amount.</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" name="nmVoucherNo" class="form-control" id="idVoucherNo" placeholder="1" style="background-color: #fce9c7; border-color: transparent;">
-                                <label for="idVoucherNo" style="letter-spacing: -2px;"> Voucher No.</label>
+                                <label for="idVoucherNo" style="letter-spacing: -2px;"><i class="fa-solid fa-3" style="color: rgb(156, 12, 12);"></i> Voucher No.</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <input type="text" name="nmBatchno" class="form-control" id="idBatchno" placeholder="1" style="background-color: #fce9c7; border-color: transparent;">
-                                <label for="idBatchno" style="letter-spacing: -2px;"> Batch No.</label>
+                                <label for="idBatchno" style="letter-spacing: -2px;"><i class="fa-solid fa-4" style="color: rgb(156, 12, 12);"></i> Batch No.</label>
                             </div>
                             <div class="form-floating mb-3">
                                 <textarea type="text" name="nmDescription" class="form-control" id="idDescription" placeholder="1" style="background-color: #fce9c7; border-color: transparent; height: 100px;" rows="5"></textarea>
-                                <label for="idDescription" style="letter-spacing: -2px;"> Description</label>
+                                <label for="idDescription" style="letter-spacing: -2px;"><i class="fa-solid fa-5" style="color: rgb(156, 12, 12);"></i> Description</label>
                             </div>
                         </form>
                     </div>
@@ -157,7 +157,6 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function() {
-            $("#idInhouseDetails").css("display", "none");
 
             $("#btnProceed").click(function(){
                 $.ajax({
@@ -168,9 +167,11 @@
                     success:function(response){
                         if(response.success){
                             emptyBankDetails();
+                            $("#toastMessage").text("Saved successfully.");
                             $("#idInhouseDetails").fadeIn(500);
                             $("#idRequestNo").focus();
                         }else{
+                            
                             emptyBankDetails();
                         }
                     }
@@ -194,6 +195,7 @@
                     $("#idInhouseDetails").fadeOut(500);
                 }
             }
+            
 
             $("#btnSave").click(function(){
                 $.ajax({
@@ -230,6 +232,7 @@
                 }else if(idDescription==("")>0){
                     $("#idDescription").addClass("is-invalid");
                 }else{
+                    $("#toastMessage").text("Saved successfully.");
                     $("#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").removeClass("is-invalid");
                     $("#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").addClass("is-valid");
                 }
