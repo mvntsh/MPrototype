@@ -3,51 +3,55 @@
             <div class="card" style="border-radius: 0px; height: 580px; box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;">
                 <div class="card-body">
                     <form id="frmBank">
+                        <div hidden>
+                            <input type="text" name="nmOrigin" value="BPI" >
+                            <input type="text" name="nmTransactionStatus" value="Processed">
+                        </div>
                         <h4>Bank Details.</h4>
                         <div style="margin-top: 3em;">
                             <div class="form-floating mb-3">
-                                <select class="form-select" id="idAccountType" aria-label="Floating label select example" style="background-color: #fce9c7; border-color: transparent;">
-                                    <option value="1">Enrolled</option>
-                                    <option value="2">Unenrolled</option>
-                                    <option value="3">Own</option>
+                                <select class="form-select" name="nmAccountType" id="idAccountType" aria-label="Floating label select example" style="background-color: #fce9c7; border-color: transparent;">
+                                    <option value="Enrolled">Enrolled</option>
+                                    <option value="Unenrolled">Unenrolled</option>
+                                    <option value="Own">Own</option>
                                 </select>
                                 <label for="idAccountType" style="letter-spacing: -2px;"><i class="fa-solid fa-1" style="color: rgb(156, 12, 12);"></i> Account type</label>
                             </div>
                             <div class="form-floating mb-3">
-                                <select class="form-select" id="idTransactionType" aria-label="Floating label select example" style="background-color: #fce9c7; border-color: transparent;">
-                                    <option value="1">Accountabilities</option>
-                                    <option value="2">Advertisement</option>
-                                    <option value="3">Calamity fund</option>
-                                    <option value="4">Car-Loan</option>
-                                    <option value="5">Cash Advance</option>
-                                    <option value="6">Collection</option>
-                                    <option value="7">Constructions</option>
-                                    <option value="8">Consultancy fee</option>
-                                    <option value="9">GCash</option>
-                                    <option value="10">MCash Accountability</option>
-                                    <option value="11">ML Fund Accountability</option>
-                                    <option value="12">ML Fund Collection</option>
-                                    <option value="13">ML Influencer</option>
-                                    <option value="14">ML-Loans</option>
-                                    <option value="15">MLX Agents</option>
-                                    <option value="16">MLX Collection</option>
-                                    <option value="17">Placement Fee</option>
-                                    <option value="18">Professional Fee</option>
-                                    <option value="19">Quit Claim</option>
-                                    <option value="20">Refund</option>
-                                    <option value="21">Remittance</option>
-                                    <option value="22">Rental</option>
-                                    <option value="23">Replenishment</option>
-                                    <option value="24">Representation Expense</option>
-                                    <option value="25">Security Guard</option>
-                                    <option value="26">Software Maintenance</option>
-                                    <option value="27">Sponsorship</option>
-                                    <option value="28">Supplier</option>
-                                    <option value="29">SW-Rental</option>
-                                    <option value="30">Taxes & Licenses</option>
-                                    <option value="31">Telecomms</option>
-                                    <option value="32">Vis-Advertising</option>
-                                    <option value="33">Vis-Supplier</option>
+                                <select class="form-select" name="nmTransactionType" id="idTransactionType" aria-label="Floating label select example" style="background-color: #fce9c7; border-color: transparent;">
+                                    <option value="Accountabilities">Accountabilities</option>
+                                    <option value="Advertisement">Advertisement</option>
+                                    <option value="Calamity fund">Calamity fund</option>
+                                    <option value="Car-Loan">Car-Loan</option>
+                                    <option value="Cash Advance">Cash Advance</option>
+                                    <option value="Collection">Collection</option>
+                                    <option value="Constructions">Constructions</option>
+                                    <option value="Consultancy fee">Consultancy fee</option>
+                                    <option value="GCash">GCash</option>
+                                    <option value="MCash Accountability">MCash Accountability</option>
+                                    <option value="ML Fund Accountability">ML Fund Accountability</option>
+                                    <option value="ML Fund Collection">ML Fund Collection</option>
+                                    <option value="ML Influencer">ML Influencer</option>
+                                    <option value="ML-Loans">ML-Loans</option>
+                                    <option value="MLX Agents">MLX Agents</option>
+                                    <option value="MLX Collection">MLX Collection</option>
+                                    <option value="Placement Fee">Placement Fee</option>
+                                    <option value="Professional Fee">Professional Fee</option>
+                                    <option value="Quit Claim">Quit Claim</option>
+                                    <option value="Refund">Refund</option>
+                                    <option value="Remittance">Remittance</option>
+                                    <option value="Rental">Rental</option>
+                                    <option value="Replenishment">Replenishment</option>
+                                    <option value="Representation Expense">Representation Expense</option>
+                                    <option value="Security Guard">Security Guard</option>
+                                    <option value="Software Maintenance">Software Maintenance</option>
+                                    <option value="Sponsorship">Sponsorship</option>
+                                    <option value="Supplier">Supplier</option>
+                                    <option value="SW-Rental">SW-Rental</option>
+                                    <option value="Taxes & Licenses">Taxes & Licenses</option>
+                                    <option value="Telecomms">Telecomms</option>
+                                    <option value="Vis-Advertising">Vis-Advertising</option>
+                                    <option value="Vis-Supplier">Vis-Supplier</option>
                                 </select>
                                 <label for="idTransactionType" style="letter-spacing: -2px;"><i class="fa-solid fa-2" style="color: rgb(156, 12, 12);"></i> Transaction type</label>
                             </div>
@@ -167,11 +171,10 @@
                     success:function(response){
                         if(response.success){
                             emptyBankDetails();
-                            $("#toastMessage").text("Saved successfully.");
+                            
                             $("#idInhouseDetails").fadeIn(500);
                             $("#idRequestNo").focus();
                         }else{
-                            
                             emptyBankDetails();
                         }
                     }
@@ -185,10 +188,19 @@
 
                 if(idAccountname==("")>0){
                     $("#idAccountname").addClass("is-invalid");
+                    $("#toastMessage").css("background-color","#fce8e6").css("color","#750707").text("Input account name.");
+                    toastMessage();
+                    $("#idAccountname").focus();
                 }else if(idAccountno==("")>0){
                     $("#idAccountno").addClass("is-invalid");
+                    $("#toastMessage").css("background-color","#fce8e6").css("color","#750707").text("Input account number.");
+                    toastMessage();
+                    $("#idAccountno").focus();
                 }else if(idDate==("")>0){
                     $("#idDate").addClass("is-invalid");
+                    $("#toastMessage").css("background-color","#fce8e6").css("color","#750707").text("Input date.");
+                    toastMessage();
+                    $("#idDate").focus();
                 }else{
                     $("#idAccountname,#idAccountno,#idDate").removeClass("is-invalid");
                     $("#idAccountname,#idAccountno,#idDate").addClass("is-valid");
@@ -223,19 +235,44 @@
 
                 if(idRequestNo==("")>0){
                     $("#idRequestNo").addClass("is-invalid");
+                    $("#toastMessage").css("background-color","#fce8e6").css("color","#750707").text("Input request number.");
+                    toastMessage();
                 }else if(idAmount==("")>0){
                     $("#idAmount").addClass("is-invalid");
+                    $("#toastMessage").css("background-color","#fce8e6").css("color","#750707").text("Input amount.");
+                    toastMessage();
                 }else if(idVoucherNo==("")>0){
                     $("#idVoucherNo").addClass("is-invalid");
+                    $("#toastMessage").css("background-color","#fce8e6").css("color","#750707").text("Input voucher number.");
+                    toastMessage();
                 }else if(idBatchno==("")>0){
                     $("#idBatchno").addClass("is-invalid");
+                    $("#toastMessage").css("background-color","#fce8e6").css("color","#750707").text("Input batch number.");
+                    toastMessage();
                 }else if(idDescription==("")>0){
                     $("#idDescription").addClass("is-invalid");
+                    $("#toastMessage").css("background-color","#fce8e6").css("color","#750707").text("Input description.");
+                    toastMessage();
                 }else{
-                    $("#toastMessage").text("Saved successfully.");
-                    $("#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").removeClass("is-invalid");
-                    $("#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").addClass("is-valid");
+                    insert_bpi_v();
                 }
+            }
+
+            function insert_bpi_v(){
+                $.ajax({
+                    type:'POST',
+                    url:'<?php echo base_url("bpientry/insert_bpi_c"); ?>',
+                    data: $("#frmBank,#frmInhouse,#idRegion").serialize(),
+                    dataType:'json',
+                    success:function(response){
+                        $("#toastMessage").css("background-color","#e6fce6").css("color","#0b450d").text("Saved successfully.");
+                        toastMessage();
+                        $("#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").removeClass("is-invalid");
+                        $("#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").addClass("is-valid");
+                        $("#idAccountname").val("").focus();
+                        $("#idAccountno,#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").val("");
+                    }
+                })
             }
 
             $('#idAccountno,#idBatch,#idRequestNo,#idVoucherNo').keypress(function(e){    

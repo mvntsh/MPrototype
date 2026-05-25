@@ -1,3 +1,4 @@
+    
     <nav class="navbar navbar-expand-lg" style="background-color: #f0f0f0; cursor: default;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="../logo/Diamante.png" alt="Logo" width="60" height="60"></a>
@@ -38,16 +39,16 @@
                     <tr>
                         <td colspan="2" style="vertical-align: middle; text-align: center;">
                             <div class="form-floating">
-                                <select class="form-select" id="floatingSelect" aria-label="Floating label select example" style="text-transform: uppercase; background-color: #d9d8d7; border-radius: 0px;">
+                                <select class="form-select" name="nmRegion" id="idRegion" aria-label="Floating label select example" style="text-transform: uppercase; background-color: #d9d8d7; border-radius: 0px;">
                                     <option value="Luzon">Luzon</option>
                                     <option value="VisMin">VisMin</option>
                                 </select>
-                                <label for="floatingSelect"><i class="fa-solid fa-earth-asia" style="color: rgb(255, 59, 59);"></i> Region</label>
+                                <label for="idRegion"><i class="fa-solid fa-earth-asia" style="color: rgb(255, 59, 59);"></i> Region</label>
                             </div>
                         </td>
-                        
                     </tr>
                 </table>
+                <input type="text" name="nmUser_id" value="<?php echo $_SESSION['idno'] ?>" id="idUser_id">
             </form>
             </div>
         </div>

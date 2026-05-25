@@ -74,9 +74,9 @@
                     url:"loginform/logIn_c",
                     method:"post",
                     data:$("#loginForm").serialize(),
-                    dataType:"JSON",
-                    success:function(data){
-                        if(data.success == true) {
+                    dataType:"json",
+                    success:function(response){
+                        if(response.success) {
                             $("#liveToast").addClass("text-bg-success");
                             $("#toastMessage").text("Login successfully.");
                             $('#liveToast').toast('show');

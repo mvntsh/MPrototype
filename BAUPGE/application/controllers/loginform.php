@@ -1,13 +1,14 @@
 <?php
     class Loginform extends CI_Controller {
-        public function __construct() {
+        function __construct() {
             parent::__construct();
             $this->load->model('login_m');
             $this->load->helper("url");
             $this->load->library("form_validation");
+            $this->load->library("session");
         }
 
-        public function index() {
+        function index() {
             $data["title"] = "Login";
             $this->load->view('common/header', $data);
             $this->load->view('login_v');
@@ -22,7 +23,7 @@
                 $idno = $this->input->post("nmIdno");
                 $password = $this->input->post("nmPassword");
 
-                $response = $this->login_m->logIn_m($idno, $password);
+                $response = $this->login_m->signIn_m($idno, $password);
 
                 if($response) {
                     $data["success"] = true;
@@ -42,12 +43,13 @@
             $idno = $this->input->post("nmIdno");
             $password = $this->input->post("nmPassword");
 
-            $response = $this->login_m->logIn_m($idno, $password);
+            $response = $this->login_m->signIn_m($idno,$password);
 
             if($response) {
                 $data["success"] = true;
-                $data["user"] = $response;
+                $this->session->set_userdata($response);
             }
+
             echo json_encode($data);
         }
     }
