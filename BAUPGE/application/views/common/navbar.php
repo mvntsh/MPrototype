@@ -28,7 +28,7 @@
                 <table style="width: 100%;">
                     <tr>
                         <td style="text-align: center; font-size: 16.3pt;">
-                            <span class="badge bg-danger text-light" style="height: 3.5em; border-radius: 0px; padding: 1.1em;"><i class="fa-solid fa-shield-halved" style="color: rgb(255, 212, 59);"></i> MARVIN B. BATITAY</span>
+                            <span class="badge bg-danger text-light" style="height: 3.5em; border-radius: 0px; padding: 1.1em; letter-spacing: -1px; text-transform: uppercase;"><i class="fa-solid fa-shield-halved" style="color: rgb(255, 212, 59);"></i> <?php echo $_SESSION['lastname'] ?>, <?php echo $_SESSION['firstname'] ?></span>
                         </td>
                         <td>
                             <div class="d-grid">

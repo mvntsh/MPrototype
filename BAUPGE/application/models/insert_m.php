@@ -14,5 +14,15 @@
                 return false;
             }
         }
+
+        function showAccountnamebpi_m($search,$trxntype,$region){
+            $query = $this->db->query("SELECT * FROM `tblonlinetransaction` WHERE account_name LIKE '$search%' AND transaction_type='$trxntype' AND  transaction_region='$region' ORDER BY account_name ASC;")->result_array();
+
+            if(count($query)>0){
+                return $query;
+            }else{
+                return false;
+            }
+        }
     }
 ?>

@@ -63,7 +63,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-2 d-grid">
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#accountModal" class="btn btn-warning btn-block" style="letter-spacing: -2px; height: 3.4em;"><i class="fa-solid fa-magnifying-glass" style="color: rgb(44, 42, 42);"></i> Search.</button>
+                                    <button id="btnAccountname" type="button" data-bs-toggle="modal" data-bs-target="#accountModal" class="btn btn-warning btn-block" style="letter-spacing: -2px; height: 3.4em;"><i class="fa-solid fa-magnifying-glass" style="color: rgb(44, 42, 42);"></i> Search.</button>
                                 </div>
                             </div>
                             <div class="form-floating mb-3">
@@ -131,25 +131,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <table style="width: 100%;" class="table table-hover table-borderless table-striped">
-                        <tbody>
-                            <tr style="height: 3em; cursor: pointer; vertical-align: middle;">
-                                <td style="width: 10%"><i class="fa-solid fa-circle-user fa-beat" style="color: rgb(44, 42, 42);"></i></td>
-                                <td style="width: 90%; letter-spacing: -2px; text-transform: uppercase; font-weight: bolder"><i class="fa-solid fa-caret-right" style="color: rgb(44, 42, 42);"></i>Lanao Del Norte Electric Cooperative Inc.</td>
-                            </tr>
-                            <tr style="height: 3em; cursor: pointer; vertical-align: middle;">
-                                <td style="width: 10%"><i class="fa-solid fa-circle-user fa-beat" style="color: rgb(44, 42, 42);"></i></td>
-                                <td style="width: 90%; letter-spacing: -2px; text-transform: uppercase; font-weight: bolder"><i class="fa-solid fa-caret-right" style="color: rgb(44, 42, 42);"></i>Lanao Del Norte Electric Cooperative Inc.</td>
-                            </tr>
-                            <tr style="height: 3em; cursor: pointer; vertical-align: middle;">
-                                <td style="width: 10%"><i class="fa-solid fa-circle-user fa-beat" style="color: rgb(44, 42, 42);"></i></td>
-                                <td style="width: 90%; letter-spacing: -2px; text-transform: uppercase; font-weight: bolder"><i class="fa-solid fa-caret-right" style="color: rgb(44, 42, 42);"></i>Lanao Del Norte Electric Cooperative Inc.</td>
-                            </tr>
-                            <tr style="height: 3em; cursor: pointer; vertical-align: middle;">
-                                <td style="width: 10%"><i class="fa-solid fa-circle-user fa-beat" style="color: rgb(44, 42, 42);"></i></td>
-                                <td style="width: 90%; letter-spacing: -2px; text-transform: uppercase; font-weight: bolder"><i class="fa-solid fa-caret-right" style="color: rgb(44, 42, 42);"></i>Lanao Del Norte Electric Cooperative Inc.</td>
-                            </tr>
-                        </tbody>
+                    <table style="width: 100%;" class="table table-hover table-borderless table-striped" id="tblAccountname">
+                        <tbody></tbody>
                     </table>
                 </div>
                 <div class="modal-footer" hidden>
@@ -274,6 +257,43 @@
                     }
                 })
             }
+
+            $("#btnAccountname").click(function(e){
+                e.preventDefault();
+                showAccountnamebpi_v();
+            })
+            function showAccountnamebpi_v(){
+                $.ajax({
+                    type: 'POST',
+                    url:'<?php echo base_url("bpientry/showAccountnamebpi_c"); ?>',
+                    data:$("#idAccountname,#idTransactionType,#idRegion").serialize(),
+                    dataType:'json',
+                    success:function(response){
+                        if(response.success){
+                            var tbody ='';
+
+                            response.data.forEach(function(data){
+                                tbody += `
+                                    <tr id="btnSelectaccountname" data-account-name="${data.account_name}" data-account-no="${data.account_no}" style="height: 3em; cursor: pointer; vertical-align: middle;">
+                                        <td style="width: 10%"><i class="fa-solid fa-circle-user fa-beat" style="color: rgb(44, 42, 42);"></i></td>
+                                        <td style="width: 90%; letter-spacing: -2px; text-transform: uppercase; font-weight: bolder">${data.account_name} <i class="fa-solid fa-caret-right" style="color: rgb(44, 42, 42);"></i> ${data.account_no}</td>
+                                    </tr>
+                                `;
+                            })
+                            $("#tblAccountname tbody").html(tbody);
+                        }
+                    }
+                })
+            }
+
+            $(document).on("click","#btnSelectaccountname", function(){
+                var accountname = $(this).data("account-name");
+                var accountno = $(this).data("account-no");
+
+                $("#idAccountname").val(accountname);
+                $("#idAccountno").val(accountno);
+                $(".btn-close").click();
+            })
 
             $('#idAccountno,#idBatch,#idRequestNo,#idVoucherNo').keypress(function(e){    
         

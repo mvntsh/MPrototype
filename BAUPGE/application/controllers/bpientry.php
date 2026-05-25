@@ -72,5 +72,20 @@
             }
             echo json_encode($data);
         }
+
+        function showAccountnamebpi_c(){
+            $data["success"] = false;
+
+            $search = $this->input->post("nmAccountname");
+            $trxntype = $this->input->post("nmTransactionType");
+            $region = $this->input->post("nmRegion");
+
+            $data["data"] = $this->insert_m->showAccountnamebpi_m($search,$trxntype,$region);
+
+            if(count($data["data"])>0){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
     }
 ?>
