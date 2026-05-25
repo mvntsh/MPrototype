@@ -4,6 +4,7 @@
             parent::__construct();
             $this->load->model("insert_m");
             $this->load->helper("url");
+            $this->load->library("session");
             $this->load->library("form_validation");
         }
 

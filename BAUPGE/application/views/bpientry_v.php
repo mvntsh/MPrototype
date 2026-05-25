@@ -262,15 +262,15 @@
                 $.ajax({
                     type:'POST',
                     url:'<?php echo base_url("bpientry/insert_bpi_c"); ?>',
-                    data: $("#frmBank,#frmInhouse,#idRegion").serialize(),
+                    data: $("#frmBank,#frmInhouse,#idRegion,#idUser_id").serialize(),
                     dataType:'json',
                     success:function(response){
                         $("#toastMessage").css("background-color","#e6fce6").css("color","#0b450d").text("Saved successfully.");
                         toastMessage();
                         $("#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").removeClass("is-invalid");
                         $("#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").addClass("is-valid");
-                        $("#idAccountname").val("").focus();
                         $("#idAccountno,#idRequestNo,#idAmount,#idVoucherNo,#idBatchno,#idDescription").val("");
+                        $("#idAccountname").val("").focus();
                     }
                 })
             }

@@ -48,7 +48,7 @@
                         </td>
                     </tr>
                 </table>
-                <input type="text" name="nmUser_id" value="<?php echo $_SESSION['idno'] ?>" id="idUser_id">
+                <input type="text" name="nmUser_id" value="<?php echo $_SESSION['user_id'] ?>" id="idUser_id" hidden>
             </form>
             </div>
         </div>
