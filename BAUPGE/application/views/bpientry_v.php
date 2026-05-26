@@ -4,6 +4,7 @@
                 <div class="card-body">
                     <form id="frmBank">
                         <div hidden>
+                            <input type="text" name="nmFacility" value="Bizlink">
                             <input type="text" name="nmOrigin" value="BPI" >
                             <input type="text" name="nmTransactionStatus" value="Processed">
                         </div>

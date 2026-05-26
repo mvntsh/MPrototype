@@ -23,18 +23,8 @@
                         <li><a class="dropdown-item" href="#">Special Wallet</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-2" style="color: rgb(156, 12, 12);"></i> Archives
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="bpiarchive"><span class="badge bg-danger text-light" style="border-radius: 0px;">BPI</span> Online Archive</a></li>
-                        <li><a class="dropdown-item" href="#">Online Banking <span class="badge bg-secondary text-light" style="border-radius: 0px;">OTHER</span></a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Batch Upload</a></li>
-                        <li><a class="dropdown-item" href="#">Lending</a></li>
-                        <li><a class="dropdown-item" href="#">Special Wallet</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="archives"><i class="fa-solid fa-2" style="color: rgb(156, 12, 12);"></i> Archives</a>
                 </li>
             </ul>
             <form class="d-flex" style="background-color: transparent; padding: 0.5em; border-radius: 0px;">

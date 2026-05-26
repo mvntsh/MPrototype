@@ -50,6 +50,7 @@
 
 
             $values = array(
+                "facility" => $this->input->post("nmFacility"),
                 "bank_origin" => $this->input->post("nmOrigin"),
                 "account_type" => $this->input->post("nmAccountType"),
                 "account_name" => $this->input->post("nmAccountname"),
