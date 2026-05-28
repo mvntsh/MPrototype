@@ -63,6 +63,7 @@
                 "transaction_status" => $this->input->post("nmTransactionStatus"),
                 "batch_no" => $this->input->post("nmBatchno"),
                 "transaction_region" => $this->input->post("nmRegion"),
+                "description" => $this->input->post("nmDescription"),
                 "user_id" => $this->input->post("nmUser_id")
             );
 
