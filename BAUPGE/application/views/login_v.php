@@ -1,10 +1,10 @@
     <div class="row" style="margin: .3em; cursor: default;">
         <div class="col-md-12">
-            <div class="card" style="position: block; background-image: url('../logo/Diamante.png'); background-size: cover; background-position: center; width: 100%; height: 130%; border-color: white; box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
+            <!-- <div class="card" style="position: block; background-image: url('../logo/Diamante.png'); background-size: cover; background-position: center; width: 100%; height: 130%; border-color: white; box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;"> -->
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <div class="card" style="position: block; background-color: rgba(255, 255, 255, 0.9); margin-top: 14.5em; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;">
+                    <div class="card" style="position: block; background-color: rgb(250, 255, 255, 0.6); margin-top: 14.5em; box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;">
                             <div class="card-body">
                                 <h3 class="card-title" style="letter-spacing: -3px;"><strong style="color: red;">B</strong>atch <strong style="color: red;">U</strong>pload <strong style="color: red;">G</strong>enerator.<strong style="color: red;">sys</strong>.ml</h3>
                                 <p class="card-text">Please enter your credentials to <strong style="color: red; font-style: italic;">log in</strong>.</p>

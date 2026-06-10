@@ -1,5 +1,5 @@
     
-    <nav class="navbar navbar-expand-lg" style="background-color: #f0f0f0; cursor: default;">
+    <nav class="navbar navbar-expand-lg" style="background-color: rgb(236, 7, 7, .6); cursor: default; margin-bottom: .5em;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="../logo/Diamante.png" alt="Logo" width="60" height="60"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,12 +11,13 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li> -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-solid fa-1" style="color: rgb(156, 12, 12);"></i> Data Entry
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: rgb(190, 207, 226);">
+                        <i class="fa-solid fa-1" style="color: rgb(215, 236, 19);"></i> Data Entry
                     </a>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="receivingentry"><i class="fa-solid fa-1" style="color: rgb(156, 12, 12);"></i>.<i class="fa-solid fa-1" style="color: rgb(156, 12, 12);"></i>Receiving Entry</a></li>
                         <li><a class="dropdown-item" href="bpientry">Online Banking <span class="badge bg-danger text-light" style="border-radius: 0px;">BPI</span></a></li>
-                        <li><a class="dropdown-item" href="#">Online Banking <span class="badge bg-secondary text-light" style="border-radius: 0px;">OTHER</span></a></li>
+                        <li><a class="dropdown-item" href="otherentry">Online Banking <span class="badge bg-secondary text-light" style="border-radius: 0px;">OTHER</span></a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Batch Upload</a></li>
                         <li><a class="dropdown-item" href="#">Lending</a></li>
@@ -24,7 +25,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="archives"><i class="fa-solid fa-2" style="color: rgb(156, 12, 12);"></i> Archives</a>
+                    <a class="nav-link" aria-current="page" href="archives" style="color: rgb(190, 207, 226);"><i class="fa-solid fa-2" style="color: rgb(215, 236, 19);"></i> Archives</a>
                 </li>
             </ul>
             <form class="d-flex" style="background-color: transparent; padding: 0.5em; border-radius: 0px;">

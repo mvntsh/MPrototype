@@ -15,6 +15,28 @@
             $this->load->view('common/footer');
         }
 
-        
+        function viewdataArchive_c(){
+            $data["success"] = false;
+
+            $data["data"] = $this->read_m->viewdataArchive_m();
+
+            if(count($data["data"]) > 0){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
+
+        function searchdataArchive_c(){
+            $data["success"] = false;
+
+            $search = $this->input->post("txtnmSearch");
+
+            $data["data"] = $this->read_m->searchdataArchive_m($search);
+
+            if(count($data["data"]) > 0){
+                $data["success"] = true;
+            }
+            echo json_encode($data);
+        }
     }
 ?>

@@ -24,5 +24,15 @@
                 return false;
             }
         }
+
+        function receivedRequest_m($values){
+            $this->db->insert("tbldemand",$values);
+
+            if($this->db->affected_rows()>0){
+                return true;    
+            }else{
+                return false;
+            }
+        }
     }
 ?>

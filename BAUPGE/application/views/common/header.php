@@ -12,12 +12,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
     <style type="text/css">
         body{
             font-family: 'Quicksand', sans-serif;
-            background-color: #f0f0f0;
+            /* background-color: rgb(240, 236, 165); */
+            background-image: url('../img/Gemini_Generated_Image_fsvixdfsvixdfsvi.png');
+            background-size: cover;
             overflow-x: hidden;
             overflow-y: hidden;
         }
