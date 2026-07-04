@@ -1,5 +1,10 @@
     
-    <nav class="navbar navbar-expand-lg" style="background-color: rgb(236, 7, 7, .6); cursor: default; margin-bottom: .5em;">
+    <?php
+        if(!isset($_SESSION['user_id'])){
+        header('Location: Loginform');
+        }
+    ?>
+    <nav class="navbar navbar-expand-lg" style="background-color: rgb(236, 7, 7, .6); cursor: default;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="../logo/Diamante.png" alt="Logo" width="60" height="60"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

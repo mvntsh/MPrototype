@@ -16,7 +16,7 @@
         }
 
         function showAccountnamebpi_m($search,$trxntype,$region){
-            $query = $this->db->query("SELECT * FROM `tblonlinetransaction` WHERE transaction_type='$trxntype' AND  transaction_region='$region' AND account_name LIKE '$search%' ORDER BY account_name ASC;")->result_array();
+            $query = $this->db->query("SELECT * FROM `tblonlinetransaction` WHERE transaction_type='$trxntype' AND  transaction_region='$region' AND account_name LIKE '$search%' GROUP BY account_no ORDER BY account_name ASC;")->result_array();
 
             if(count($query)>0){
                 return $query;

@@ -19,7 +19,7 @@
         body{
             font-family: 'Quicksand', sans-serif;
             /* background-color: rgb(240, 236, 165); */
-            background-image: url('../img/Gemini_Generated_Image_fsvixdfsvixdfsvi.png');
+            background-image: url('../img/meowmewo4k.png');
             background-size: cover;
             overflow-x: hidden;
             overflow-y: hidden;

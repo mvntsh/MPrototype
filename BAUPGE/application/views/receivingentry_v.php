@@ -123,7 +123,7 @@
                 </table>
             </div>
             <div class="modal-footer" style="border-color: transparent;">
-                <a href="#" data-bs-dismiss="modal" style="border-radius: 0px; color: #ffd900;">Create new Cost Center.</a>
+                <a href="#" data-bs-dismiss="modal" style="border-radius: 0px; color: #ffd900;" id="labelCreatecc">Create new Cost Center.</a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" hidden>Close</button>
                 <button type="button" class="btn btn-primary" hidden>Understood</button>
             </div>
@@ -149,7 +149,7 @@
                 </table>
             </div>
             <div class="modal-footer" style="border-color: transparent;">
-                <a href="#" data-bs-dismiss="modal" style="border-radius: 0px; color: #ffd900;">Create new Transaction type.</a>
+                <a href="#" data-bs-dismiss="modal" style="border-radius: 0px; color: #ffd900;" id="labelCratett">Create new Transaction type.</a>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" hidden>Close</button>
                 <button type="button" class="btn btn-primary" hidden>Understood</button>
             </div>
@@ -158,6 +158,16 @@
     </div>
     <script type="text/javascript">
         $(document).ready(function(){
+            $("#labelCreatecc").click(function(e){
+                e.preventDefault();
+                $("#idnmCost_center").val("").focus();
+            })
+
+            $("#labelCratett").click(function(e){
+                e.preventDefault();
+                $("#idnmTransaction_type").val("").focus();
+            })
+
             viewRequests_v();
             viewCostcenter_v();
             viewTransactiontype_v();
