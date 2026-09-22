@@ -15,9 +15,16 @@
                         <input type="text" class="form-control input-box" id="inputnmRequestid" placeholder="Request id">
                         <label for="inputnmRequestid">Request ID</label>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control input-box" id="inputnmName" placeholder="Name">
-                        <label for="inputnmName">Requestor Name</label>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control input-box" id="inputnmName" placeholder="Name">
+                                <label for="inputnmName">Requestor Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <img src="../icons/search.gif" alt="" style="width: 50px; height: 50px; cursor: pointer; margin-top: .3em;" id="searchIcon">
+                        </div>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="date" class="form-control input-box" id="inputnmDate" placeholder="Date">
@@ -48,166 +55,21 @@
                             <thead>
                                 <tr style="text-align: center; font-size: 11pt; position: sticky; top: 0;">
                                     <th style="width: 10%;">Request ID</th>
-                                    <th style="width: 30%;">Name</th>
+                                    <th style="width: 25%;">Name</th>
                                     <th style="width: 15%;">Date</th>
                                     <th style="width: 15%;">Amount</th>
-                                    <th style="width: 30%;">Description</th>
+                                    <th style="width: 25%;">Description</th>
+                                    <th style="width: 10%;">Status</th>
                                 </tr>
                             </thead>
                             <tbody id="requestList" style="font-size: 10pt;">
                                 <tr>
-                                    <td>500123</td>
+                                    <td style="text-align: center;">500123</td>
                                     <td>Marvin Batitay - AKA Sharky</td>
                                     <td>2023-10-01</td>
-                                    <td>1000.00</td>
+                                    <td style="text-align: center;">1000.00</td>
                                     <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
-                                </tr>
-                                <tr>
-                                    <td>500123</td>
-                                    <td>Marvin Batitay - AKA Sharky</td>
-                                    <td>2023-10-01</td>
-                                    <td>1000.00</td>
-                                    <td>Request for new equipment</td>
+                                    <td>Requested</td>
                                 </tr>
                             </tbody>
                         </table>
