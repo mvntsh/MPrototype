@@ -13,7 +13,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <h1 class="text-center">Check Inquiry</h1>
+                    <h1 class="text-center" style="font-weight: bolder; font-family: 'Bungee', sans-serif; letter-spacing: 2px;">Check Inquiry</h1>
                 </div>
                 <div class="col-md-3">
                     <div class="input-group mb-3">
