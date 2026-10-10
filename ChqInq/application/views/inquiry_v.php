@@ -4,6 +4,9 @@
     <div class="card" style="box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px; margin: 1em; border-radius: 0em; color: white; background-color: rgb(10, 10, 10, .8);">
         <div class="card-body">
             <div class="row">
+                <div class="col-md-6">
+                    <h1 style="font-weight: bolder; letter-spacing: 2px; color: #c45025; font-family: 'Irish Grover', system-ui;"><span id="inquiryTitle"></span> Data</h1>
+                </div>
                 <div class="col-md-3">
                     <div class="form-floating">
                         <select class="form-select" id="inputnmInquiry" aria-label="Floating label select example" style="background-color: #9c9b9a; border-color: #9c9b9a;">
@@ -14,9 +17,6 @@
                         </select>
                         <label for="inputnmInquiry">Works with selects</label>
                     </div>
-                </div>
-                <div class="col-md-6">
-                    <h1 class="text-center" style="font-weight: bolder; letter-spacing: 2px; color: #c45025; font-family: 'Irish Grover', system-ui;"><span id="inquiryTitle"></span> Data</h1>
                 </div>
                 <div class="col-md-3">
                     <div class="input-group mb-3">
