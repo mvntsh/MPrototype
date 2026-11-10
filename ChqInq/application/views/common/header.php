@@ -20,6 +20,7 @@
             font-family: "Roboto Condensed", sans-serif;
             font-optical-sizing: auto;
             cursor: default;
+            overflow-x: hidden;
         }
 
         #myVideo {

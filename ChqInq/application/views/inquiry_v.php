@@ -1,3 +1,8 @@
+    <?php
+      if(!isset($_SESSION['cis_uuserid'])){
+        header('Location: Login');
+      }
+    ?>
     <video autoplay muted loop id="myVideo">
         <source src="../background/halloween.1920x1080.mp4" type="video/mp4">
     </video>
